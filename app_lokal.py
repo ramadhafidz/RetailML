@@ -26,10 +26,24 @@ from sklearn.pipeline import Pipeline
 TARGET_COLUMNS = ["product_id", "product_name", "price", "stock", "category"]
 
 # =============================================================================
-# 2. LAYER 1 — ALIAS DICTIONARY
-#    Pencocokan eksak setelah normalisasi nama kolom.
-#    Tambahkan alias baru di sini untuk memperluas cakupan tanpa menyentuh logika.
+# 2. LAYER 1 — ALIAS DICTIONARY & IGNORE LIST
 # =============================================================================
+
+# Kolom yang pasti BUKAN target, langsung skip agar tidak salah tebak oleh ML
+IGNORE_COLUMNS: Set[str] = {
+    "diskon",
+    "discount",
+    "potongan",
+    "catatan",
+    "keterangan",
+    "notes",
+    "petugas",
+    "kasir",
+    "lokasi",
+    "loc",
+    "tanggal",
+    "date",
+}
 
 ALIAS_DICT: Dict[str, str] = {
     # --- Self-mapping (kolom sudah sesuai target schema) ---
@@ -437,6 +451,9 @@ def _map_column(col_name: str, series: pd.Series) -> Optional[str]:
     """
     norm = _normalize(col_name)
 
+    if norm in IGNORE_COLUMNS:
+        return None  # Bypass semua layer jika kolom ada di ignore list
+
     return (
         _match_layer1_alias(norm)
         or _match_layer2_token(norm)
@@ -477,15 +494,12 @@ def _cleanse_dataframe(df: pd.DataFrame, filename: str) -> pd.DataFrame:
             return 0
         if isinstance(val, (int, float)):
             return int(val)
-        # Hapus "Rp", spasi, titik, koma
-        s = (
-            str(val)
-            .lower()
-            .replace("rp", "")
-            .replace(" ", "")
-            .replace(".", "")
-            .replace(",", "")
-        )
+        # Hapus "Rp" dan spasi
+        s = str(val).lower().replace("rp", "").replace(" ", "")
+        # Potong angka desimal di belakang koma (misal: 15.000,00 -> 15.000)
+        s = s.split(",")[0]
+        # Hapus titik ribuan
+        s = s.replace(".", "")
         try:
             return int(s)
         except ValueError:

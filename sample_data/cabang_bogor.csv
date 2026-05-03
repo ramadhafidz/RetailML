@@ -1,5 +1,11 @@
-stock,category,product_name,product_id,price,anomaly_note
-18,Minuman,Teh Botol 350ml,RTL201,5000,kolom acak
-50,Sembako,Gula Pasir 1kg,RTL202,17000,urutan beda
-7,Snack,Keripik Singkong,RTL203,12000,data sengaja tidak rapi
-0,Daily,Sabun Cuci Tangan,RTL204,15000,stock nol
+kd_brg,nm_brg,hrg_jual,jml_stk,diskon
+BGR-01,Mie Instan Kari,3000,150.0,0.0
+BGR-02,Susu Kental Manis,Rp. 12.000,40.0,1000.0
+BGR-03,Tepung Terigu 1kg,10500,80.0,0.0
+BGR-04,Mentega 200g,7500,55.0,0.0
+BGR-05,Kecap Manis 520ml,21000.0,30.0,0.0
+,Air Mineral 600ml,3500,100.0,
+BGR-07,Air Mineral 1.5L,Rp6.000,50.0,
+BGR-08,Saus Sambal,"15.000,00",,0.0
+BGR-09,Biskuit Cokelat,9000,120.0,500.0
+BGR-10,Wafer Krim,12500,60.5,

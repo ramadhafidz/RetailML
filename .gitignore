@@ -11,8 +11,7 @@ __pycache__/
 
 # File Data
 # (Kita abaikan file CSV hasil output agar repository tidak bengkak)
-hasil_*.csv
-semua_cabang_bersih.csv
+hasil_data/
 
 # Ekstensi Editor / OS
 .vscode/
