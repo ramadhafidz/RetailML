@@ -13,16 +13,19 @@ Alur kerja sistem (Decoupled Architecture):
 
 ## Struktur Direktori di Cloud Functions
 
-Saat men-deploy ke GCF, struktur file yang dibutuhkan HANYA 3 file ini:
+Saat men-deploy ke GCF, struktur file minimalnya seperti ini:
 
 ```text
 ml-etl-pipeline/
-├── main.py              # Entry point GCF (Event handler & I/O)
-├── column_mapper.py     # Core ML Engine (TIDAK BOLEH DIUBAH)
-└── requirements.txt     # Dependencies
+├── main.py                   # Entry point GCF (Event handler & I/O)
+├── column_mapper.py          # Wrapper production (import core engine)
+├── engine/
+│   ├── __init__.py
+│   └── column_mapper_core.py # Core ML Engine (TIDAK BOLEH DIUBAH)
+└── requirements.txt          # Dependencies
 ```
 
-> **PENTING:** File `column_mapper_lokal.py`, `test_semua_cabang.py`, dan folder `sample_data/` TIDAK PERLU di-deploy ke GCP karena hanya untuk testing lokal.
+> **PENTING:** File `column_mapper_lokal.py`, folder `scripts/`, dan `sample_data/` TIDAK PERLU di-deploy ke GCP karena hanya untuk testing lokal.
 
 ## 1. File `requirements.txt`
 

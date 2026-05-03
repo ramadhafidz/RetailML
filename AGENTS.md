@@ -30,8 +30,11 @@ Output akhir DataFrame harus HANYA berisi kolom berikut:
 ## Struktur Direktori & Penjelasan File
 Agar pengembangan tidak membingungkan, berikut adalah panduan arsitektur file yang ada di dalam folder ini:
 
-- **`column_mapper.py`**: Modul Engine Utama (*Production-Ready*). Berisi logika hybrid matching (Alias, Token, Regex, ML TF-IDF) dan data cleansing sesuai `DATA_DICTIONARY.md`. File ini murni sebagai *library*/*engine* *stateless* yang siap di-import oleh Google Cloud Functions atau FastAPI, tanpa adanya script eksekusi lokal di dalamnya.
-- **`column_mapper_lokal.py`**: Versi *development* dari `column_mapper.py`. Isinya sama persis dengan engine utama, tetapi di bagian paling bawah terdapat blok eksekusi CLI (`if __name__ == "__main__":`) yang berisi *dummy data* / *test cases* manual. Digunakan untuk *quick testing* atau *debugging* langsung di terminal tanpa butuh data eksternal.
-- **`test_semua_cabang.py`**: *Script runner/tester* otomatis. Skrip ini akan mensimulasikan proses pipeline dengan membaca seluruh file CSV kotor di dalam folder `sample_data/`, memprosesnya ke engine kita, dan mencetak laporan keberhasilannya ke terminal sebelum menyimpannya ke `hasil_data/`.
-- **`sample_data/`**: Folder *input* yang berisi sekumpulan file CSV kotor (data mentah) simulasi dari berbagai cabang (contoh: format POS lama, typo, anomali singkatan ekstrem). Digunakan sebagai bahan uji coba ketangguhan Machine Learning.
-- **`hasil_data/`**: Folder *output*. Menampung file CSV yang sudah berhasil distandarisasi dan dibersihkan oleh sistem. Format di dalam folder ini sudah siap dan aman untuk dikonsumsi Data Warehouse / BigQuery.
+- **`engine/column_mapper_core.py`**: Modul Engine Inti (*Core Logic*). Berisi logika hybrid matching (Alias, Token, Regex, ML TF-IDF) dan data cleansing sesuai `DATA_DICTIONARY.md`. File ini murni *stateless* dan menjadi satu-satunya sumber logika ML.
+- **`column_mapper.py`**: Wrapper *Production-Ready* untuk GCP/FastAPI. Hanya melakukan import dari `engine/column_mapper_core.py` agar deployment tetap bersih.
+- **`column_mapper_lokal.py`**: Wrapper *development* dengan CLI test runner (`if __name__ == "__main__":`) untuk uji cepat di lokal.
+- **`scripts/test_semua_cabang.py`**: *Script runner/tester* otomatis. Skrip ini mensimulasikan proses pipeline dengan membaca seluruh file CSV kotor di `sample_data/`, memprosesnya ke engine kita, dan menyimpan hasilnya ke `hasil_data/`.
+- **`scripts/generate_data.py`**: Generator data uji (opsional). Membuat file CSV kotor dengan berbagai anomali untuk stres-test engine.
+- **`sample_data/`**: Folder *input* berisi CSV mentah dari berbagai cabang (format POS lama, typo, anomali singkatan ekstrem).
+- **`hasil_data/`**: Folder *output* berisi CSV yang sudah distandarisasi dan dibersihkan (siap untuk Data Warehouse / BigQuery).
+- **`docs/`**: Dokumentasi teknis (contoh: `GCP_DEPLOYMENT.md`, `API_CONTRACT.md`).
