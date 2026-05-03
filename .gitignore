@@ -1,0 +1,21 @@
+# Lingkungan Virtual Python
+env/
+venv/
+.env/
+
+# Cache dan File Kompilasi Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# File Data
+# (Kita abaikan file CSV hasil output agar repository tidak bengkak)
+hasil_*.csv
+semua_cabang_bersih.csv
+
+# Ekstensi Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
