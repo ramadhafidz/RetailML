@@ -1,5 +1,0 @@
-kode_item,nama_brg,harga_total,stok_awal,klasifikasi,catatan_anomali
-RTL101,Beras Pandan Wangi 5kg,18500,15,sembako,format harga pakai angka biasa
-RTL102,Sabun Cuci Piring,13.500,8,pembersih,stok ditulis normal tanpa satuan
-RTL103,Kopi Sachet 3in1,"Rp 9.000",dua_belas,minuman,stok pakai teks bukan angka
-RTL104,Minyak Goreng 1L,28000,,daily,kolom stok kosong

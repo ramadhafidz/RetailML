@@ -1,80 +1,563 @@
-import streamlit as st
+"""
+RetailML - Schema Matching Engine
+==================================
+Modul utama untuk standarisasi nama kolom CSV secara otomatis.
+Menggunakan pendekatan Hybrid berlapis:
+  1. Alias Dictionary  (eksak)
+  2. Token Hint        (kata kunci dalam nama kolom)
+  3. Value Regex       (pola nilai di dalam kolom)
+  4. TF-IDF + Logistic Regression (ML fallback)
+
+Entry point utama: standardize_dataframe(df: pd.DataFrame) -> pd.DataFrame
+"""
+
+import re
+from typing import Dict, List, Optional, Set, cast
+
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
-import io
+from sklearn.linear_model import LogisticRegression
+from sklearn.pipeline import Pipeline
 
-# --- 1. KONFIGURASI TARGET SCHEMA ---
+# =============================================================================
+# 1. KONFIGURASI TARGET SCHEMA
+# =============================================================================
+
 TARGET_COLUMNS = ["product_id", "product_name", "price", "stock", "category"]
 
-# --- 2. FUNGSI MACHINE LEARNING (LOKAL) ---
-def get_ml_mapping(source_cols):
-    mapping = {}
-    # Menggunakan N-Gram agar AI peka terhadap singkatan (misal: 'prc' jadi 'price')
-    vectorizer = TfidfVectorizer(analyzer='char_wb', ngram_range=(2, 3))
-    
-    for col in source_cols:
-        clean_col = col.lower()
-        tfidf_matrix = vectorizer.fit_transform([clean_col] + [t.lower() for t in TARGET_COLUMNS])
-        similarities = cosine_similarity(tfidf_matrix[0:1], tfidf_matrix[1:])
-        best_match_idx = similarities.argmax()
-        score = similarities[0][best_match_idx]
-        
-        # Batas toleransi (threshold) di-set rendah agar bisa menangkap singkatan
-        if score > 0.1:
-            mapping[col] = TARGET_COLUMNS[best_match_idx]
-            
-    return mapping
+# =============================================================================
+# 2. LAYER 1 — ALIAS DICTIONARY
+#    Pencocokan eksak setelah normalisasi nama kolom.
+#    Tambahkan alias baru di sini untuk memperluas cakupan tanpa menyentuh logika.
+# =============================================================================
 
-# --- 3. TAMPILAN WEB STREAMLIT ---
-st.set_page_config(page_title="Local ETL Simulator", layout="wide")
-st.title("💻 Simulator ETL Lokal (Tanpa Cloud)")
-st.write("Uji coba logika Machine Learning untuk standarisasi kolom CSV secara offline.")
+ALIAS_DICT: Dict[str, str] = {
+    # --- Self-mapping (kolom sudah sesuai target schema) ---
+    "product_id": "product_id",
+    "product_name": "product_name",
+    "price": "price",
+    "stock": "stock",
+    "category": "category",
+    # --- product_id ---
+    "id": "product_id",
+    "kode": "product_id",
+    "kode_produk": "product_id",
+    "kode_barang": "product_id",
+    "kode_item": "product_id",
+    "product_code": "product_id",
+    "item_code": "product_id",
+    "prod_id": "product_id",
+    "item_id": "product_id",
+    "article_id": "product_id",
+    "ref_id": "product_id",
+    "sku": "product_id",
+    "barcode": "product_id",
+    "no": "product_id",
+    "nomor": "product_id",
+    "nomor_produk": "product_id",
+    # --- product_name ---
+    "nama": "product_name",
+    "nama_produk": "product_name",
+    "nama_barang": "product_name",
+    "nama_item": "product_name",
+    "product": "product_name",
+    "item": "product_name",
+    "barang": "product_name",
+    "item_name": "product_name",
+    "goods_name": "product_name",
+    "description": "product_name",
+    "deskripsi": "product_name",
+    "product_desc": "product_name",
+    "item_description": "product_name",
+    # --- price ---
+    "harga": "price",
+    "harga_jual": "price",
+    "harga_satuan": "price",
+    "harga_beli": "price",
+    "cost": "price",
+    "selling_price": "price",
+    "unit_price": "price",
+    "retail_price": "price",
+    "sale_price": "price",
+    "nilai": "price",
+    "tarif": "price",
+    # --- stock ---
+    "stok": "stock",
+    "sisa": "stock",
+    "sisa_stok": "stock",
+    "jumlah_stok": "stock",
+    "qty": "stock",
+    "quantity": "stock",
+    "jumlah": "stock",
+    "inventory": "stock",
+    "tersedia": "stock",
+    "available_qty": "stock",
+    "kuantitas": "stock",
+    # --- category ---
+    "kategori": "category",
+    "jenis": "category",
+    "jenis_barang": "category",
+    "jenis_produk": "category",
+    "tipe": "category",
+    "type": "category",
+    "grup": "category",
+    "group": "category",
+    "divisi": "category",
+    "product_type": "category",
+    "item_category": "category",
+    "product_group": "category",
+    "cat": "category",
+    # --- Singkatan umum (pastikan tidak lolos ke Layer 3/4) ---
+    "prc": "price",
+    "stck": "stock",
+    "qte": "stock",
+    "ctg": "category",
+}
 
-st.divider()
+# =============================================================================
+# 3. LAYER 2 — TOKEN HINTS
+#    Dipecah dari nama kolom menjadi token, lalu dicek terhadap kata kunci khas.
+#    Token dipilih sengaja SPESIFIK untuk menghindari ambiguitas antar kolom.
+# =============================================================================
 
-# Area Upload File
-uploaded_file = st.file_uploader("Upload File CSV Cabang (Format Bebas)", type=["csv"])
+TOKEN_HINTS: Dict[str, list] = {
+    "product_id": ["sku", "barcode"],
+    "product_name": ["name", "nama", "barang", "deskripsi"],
+    "price": ["price", "harga", "cost", "tarif"],
+    "stock": ["stock", "stok", "qty", "quantity", "jumlah", "inventory"],
+    "category": ["category", "kategori", "tipe", "jenis", "grup", "divisi"],
+}
 
-if uploaded_file is not None:
-    # A. Membaca Data Asli
-    df_raw = pd.read_csv(uploaded_file)
-    
-    st.subheader("1. Data Asli (Sebelum Diproses)")
-    st.dataframe(df_raw.head(), use_container_width=True)
-    
-    with st.spinner("AI sedang mencocokkan nama kolom..."):
-        # B. Menjalankan Machine Learning
-        source_columns = df_raw.columns.tolist()
-        mapping_dict = get_ml_mapping(source_columns)
-        
-        # Menampilkan hasil "pikiran" AI
-        st.subheader("2. Hasil Analisis Machine Learning")
-        st.write("Kamus Mapping yang dibuat AI:", mapping_dict)
-        
-        # C. Transformasi Data
-        df_transformed = df_raw.rename(columns=mapping_dict)
-        
-        # Filter hanya kolom yang ada di target schema
-        existing_target_cols = [c for c in TARGET_COLUMNS if c in df_transformed.columns]
-        df_final = df_transformed[existing_target_cols]
-        
-        # Tambahkan metadata
-        df_final['source_file'] = uploaded_file.name
-        df_final['processed_at'] = pd.Timestamp.now()
-        
-        st.subheader("3. Data Final (Siap Masuk Data Warehouse)")
-        if df_final.empty:
-            st.error("Gagal! AI tidak bisa mengenali satu pun kolom dari file ini.")
+# =============================================================================
+# 4. LAYER 3 — VALUE REGEX
+#    Sampling 20 baris pertama untuk mendeteksi pola nilai dalam kolom.
+#    Urutan iterasi penting: dari pola paling spesifik ke paling umum.
+# =============================================================================
+
+VALUE_PATTERNS: Dict[str, re.Pattern] = {
+    # product_id: kode alfanumerik spesifik (misal: PRD-001, SKU123, A-99)
+    # Sengaja hanya product_id — 'stock' dan 'price' sama-sama bisa berisi
+    # angka bulat sehingga tidak dapat dibedakan secara andal via regex saja.
+    # Kasus nama kolom ambigu + nilai angka ditangani Layer 4 (ML).
+    "product_id": re.compile(r"^[A-Z]{1,5}[-_]?\d{2,}$", re.IGNORECASE),
+}
+
+# =============================================================================
+# 5. LAYER 4 — TRAINING CORPUS (TF-IDF + LOGISTIC REGRESSION)
+#    Data sintetis yang merepresentasikan variasi nama kolom dunia nyata.
+# =============================================================================
+
+_TRAINING_CORPUS = [
+    # product_id
+    ("product_id", "product_id"),
+    ("prod_id", "product_id"),
+    ("id_produk", "product_id"),
+    ("kode_produk", "product_id"),
+    ("sku", "product_id"),
+    ("item_code", "product_id"),
+    ("barcode", "product_id"),
+    ("product_code", "product_id"),
+    ("nomor_produk", "product_id"),
+    ("article_id", "product_id"),
+    ("ref_id", "product_id"),
+    ("item_id", "product_id"),
+    ("kode_barang", "product_id"),
+    ("kode_item", "product_id"),
+    ("product_no", "product_id"),
+    # product_name
+    ("product_name", "product_name"),
+    ("nama_produk", "product_name"),
+    ("item_name", "product_name"),
+    ("barang", "product_name"),
+    ("description", "product_name"),
+    ("deskripsi", "product_name"),
+    ("nama_barang", "product_name"),
+    ("product_desc", "product_name"),
+    ("goods_name", "product_name"),
+    ("nama_item", "product_name"),
+    ("item_description", "product_name"),
+    ("nama", "product_name"),
+    ("product_label", "product_name"),
+    # price
+    ("price", "price"),
+    ("harga", "price"),
+    ("cost", "price"),
+    ("selling_price", "price"),
+    ("unit_price", "price"),
+    ("harga_jual", "price"),
+    ("harga_satuan", "price"),
+    ("retail_price", "price"),
+    ("nilai", "price"),
+    ("tarif", "price"),
+    ("prc", "price"),
+    ("harga_beli", "price"),
+    ("sale_price", "price"),
+    ("pricing", "price"),
+    # stock
+    ("stock", "stock"),
+    ("stok", "stock"),
+    ("qty", "stock"),
+    ("quantity", "stock"),
+    ("jumlah", "stock"),
+    ("inventory", "stock"),
+    ("tersedia", "stock"),
+    ("sisa_stok", "stock"),
+    ("available_qty", "stock"),
+    ("jumlah_stok", "stock"),
+    ("stck", "stock"),
+    ("kuantitas", "stock"),
+    ("qte", "stock"),
+    ("unit_tersedia", "stock"),
+    # category
+    ("category", "category"),
+    ("kategori", "category"),
+    ("type", "category"),
+    ("tipe", "category"),
+    ("jenis", "category"),
+    ("group", "category"),
+    ("grup", "category"),
+    ("divisi", "category"),
+    ("product_type", "category"),
+    ("item_category", "category"),
+    ("product_group", "category"),
+    ("jenis_barang", "category"),
+    ("cat", "category"),
+    ("ctg", "category"),
+    # -------------------------------------------------------------------------
+    # 🔴 ANOMALI PRIORITAS TINGGI — Singkatan agresif (konteks retail Indonesia)
+    # -------------------------------------------------------------------------
+    # product_id — singkatan
+    ("p_id", "product_id"),
+    ("id_prd", "product_id"),
+    ("kd_prod", "product_id"),
+    ("kd_brg", "product_id"),
+    ("kd_item", "product_id"),
+    ("no_prod", "product_id"),
+    ("no_brg", "product_id"),
+    # product_name — singkatan
+    ("nm_brg", "product_name"),
+    ("nm_prod", "product_name"),
+    ("nm_item", "product_name"),
+    ("prod_nm", "product_name"),
+    ("item_nm", "product_name"),
+    ("p_name", "product_name"),
+    ("p_nm", "product_name"),
+    ("nama_brg", "product_name"),
+    # price — singkatan
+    ("hrg", "price"),
+    ("hrg_jl", "price"),
+    ("hrg_sat", "price"),
+    ("hrg_jual", "price"),
+    ("hg", "price"),
+    # stock — singkatan
+    ("jml", "stock"),
+    ("jml_stk", "stock"),
+    ("stk", "stock"),
+    ("jml_brg", "stock"),
+    ("qty_stk", "stock"),
+    ("sisa_stk", "stock"),
+    # category — singkatan
+    ("ktgr", "category"),
+    ("ktg", "category"),
+    ("jns", "category"),
+    ("jns_brg", "category"),
+    ("div", "category"),
+    ("kat", "category"),
+    # -------------------------------------------------------------------------
+    # 🔴 ANOMALI PRIORITAS TINGGI — Typo yang char n-gram kurang tangkap
+    # -------------------------------------------------------------------------
+    # product_id — typo
+    ("prodcut_id", "product_id"),
+    ("pruduct_id", "product_id"),
+    ("product_di", "product_id"),
+    # product_name — typo
+    ("prodcut_name", "product_name"),
+    ("pruduct_name", "product_name"),
+    ("product_nme", "product_name"),
+    ("product_nam", "product_name"),
+    # price — typo
+    ("priice", "price"),
+    ("prcie", "price"),
+    ("prce", "price"),
+    ("hargaa", "price"),
+    ("harrga", "price"),
+    # stock — typo
+    ("stcok", "stock"),
+    ("stoock", "stock"),
+    ("stokc", "stock"),
+    ("kwantitas", "stock"),
+    ("kuantias", "stock"),
+    ("quantiti", "stock"),
+    # category — typo
+    ("katgori", "category"),
+    ("karegori", "category"),
+    ("cateogry", "category"),
+    ("categori", "category"),
+    ("catagory", "category"),
+    ("kategorii", "category"),
+    # -------------------------------------------------------------------------
+    # 🟡 ANOMALI PRIORITAS SEDANG — Verbose + database/system prefix
+    # -------------------------------------------------------------------------
+    # product_id — verbose & prefix
+    ("tbl_product_id", "product_id"),
+    ("f_product_id", "product_id"),
+    ("kode_unik_produk", "product_id"),
+    ("id_unik_produk", "product_id"),
+    ("product_id_utama", "product_id"),
+    ("nomor_kode_produk", "product_id"),
+    # product_name — verbose & prefix
+    ("nama_lengkap_produk", "product_name"),
+    ("full_product_name", "product_name"),
+    ("nama_produk_lengkap", "product_name"),
+    ("complete_item_name", "product_name"),
+    # price — verbose & prefix
+    ("f_harga_jual", "price"),
+    ("tbl_harga", "price"),
+    ("harga_jual_per_unit", "price"),
+    ("harga_per_unit", "price"),
+    ("harga_satuan_produk", "price"),
+    ("total_harga_satuan", "price"),
+    # stock — verbose & prefix
+    ("total_stok_tersedia", "stock"),
+    ("jumlah_stok_tersedia", "stock"),
+    ("sisa_persediaan", "stock"),
+    ("persediaan", "stock"),
+    ("stok_tersedia", "stock"),
+    ("jumlah_persediaan", "stock"),
+    # category — verbose & prefix
+    ("kategori_produk", "category"),
+    ("jenis_produk_utama", "category"),
+    ("tipe_barang", "category"),
+    ("tipe_produk", "category"),
+    ("divisi_produk", "category"),
+    ("kelompok_produk", "category"),
+    ("golongan_produk", "category"),
+]
+
+# =============================================================================
+# 6. BUILD ML PIPELINE — Dilatih SEKALI saat modul dimuat (stateless cache)
+# =============================================================================
+
+
+def _build_ml_pipeline() -> Pipeline:
+    """Melatih pipeline TF-IDF + Logistic Regression dari corpus sintetis."""
+    X_train = [text for text, _ in _TRAINING_CORPUS]
+    y_train = [label for _, label in _TRAINING_CORPUS]
+
+    pipeline = Pipeline(
+        [
+            ("tfidf", TfidfVectorizer(analyzer="char_wb", ngram_range=(2, 4))),
+            ("clf", LogisticRegression(max_iter=500, C=5.0, solver="lbfgs")),
+        ]
+    )
+    pipeline.fit(X_train, y_train)
+    return pipeline
+
+
+_ML_PIPELINE: Pipeline = _build_ml_pipeline()
+
+# =============================================================================
+# 7. FUNGSI-FUNGSI MATCHING INTERNAL
+# =============================================================================
+
+
+def _normalize(col: str) -> str:
+    """
+    Normalisasi nama kolom sebelum pencocokan:
+      - Handle CamelCase  : "NamaProduk"  → "nama_produk"
+      - Ganti non-alfanumerik dengan underscore
+      - Collapse underscore ganda, strip, dan lowercase
+    """
+    col = re.sub(r"([a-z])([A-Z])", r"\1_\2", col)  # CamelCase → snake_case
+    col = re.sub(r"[^a-zA-Z0-9]+", "_", col.strip())  # non-alphanumeric → _
+    col = re.sub(r"_+", "_", col).strip("_")  # collapse & strip _
+    return col.lower()
+
+
+def _match_layer1_alias(norm_col: str) -> Optional[str]:
+    """Layer 1: Pencocokan eksak terhadap kamus alias."""
+    return ALIAS_DICT.get(norm_col)
+
+
+def _match_layer2_token(norm_col: str) -> Optional[str]:
+    """
+    Layer 2: Pencocokan berdasarkan token hint dalam nama kolom.
+    Jika ada beberapa kandidat, pilih yang memiliki token hint terpanjang
+    untuk mengurangi ambiguitas.
+    """
+    tokens: Set[str] = set(re.split(r"[_\s]+", norm_col))
+    best_target: Optional[str] = None
+    best_len: int = 0
+
+    for target, hints in TOKEN_HINTS.items():
+        for hint in hints:
+            if hint in tokens and len(hint) > best_len:
+                best_len = len(hint)
+                best_target = target
+
+    return best_target
+
+
+def _match_layer3_value_regex(series: pd.Series) -> Optional[str]:
+    """
+    Layer 3: Pencocokan berdasarkan pola nilai dalam kolom.
+    Mengambil sampel 20 baris pertama; target diterima jika >= 70% nilai cocok.
+    """
+    sample = series.dropna().astype(str).head(20)
+    if sample.empty:
+        return None
+
+    for target, pattern in VALUE_PATTERNS.items():
+        match_ratio = sample.apply(lambda v: bool(pattern.match(v.strip()))).mean()
+        if match_ratio >= 0.70:
+            return target
+
+    return None
+
+
+def _match_layer4_ml(norm_col: str) -> Optional[str]:
+    """
+    Layer 4: Prediksi TF-IDF + Logistic Regression.
+    Hanya menerima prediksi dengan confidence >= 40%.
+    """
+    probas = _ML_PIPELINE.predict_proba([norm_col])[0]
+    max_proba = probas.max()
+
+    if max_proba >= 0.40:
+        return str(_ML_PIPELINE.classes_[probas.argmax()])
+    return None
+
+
+def _map_column(col_name: str, series: pd.Series) -> Optional[str]:
+    """
+    Jalankan 4 lapisan pencocokan secara berurutan untuk satu kolom.
+    Kembalikan nama kolom target, atau None jika tidak ada yang cocok.
+    """
+    norm = _normalize(col_name)
+
+    return (
+        _match_layer1_alias(norm)
+        or _match_layer2_token(norm)
+        or _match_layer3_value_regex(series)
+        or _match_layer4_ml(norm)
+    )
+
+
+# =============================================================================
+# 8. ENTRY POINT UTAMA
+# =============================================================================
+
+
+def standardize_dataframe(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Terima DataFrame mentah dengan nama kolom sembarang,
+    kembalikan DataFrame bersih dengan skema standar Data Warehouse.
+
+    Kolom yang berhasil dipetakan ke target yang sama lebih dari sekali
+    akan menggunakan kolom pertama yang ditemukan (first-match wins).
+    Kolom yang tidak bisa dipetakan akan dihilangkan dari output.
+
+    Args:
+        df: DataFrame mentah hasil baca CSV (input harus berupa objek di memori).
+
+    Returns:
+        pd.DataFrame dengan subset kolom sesuai TARGET_COLUMNS.
+    """
+    mapping: Dict[str, str] = {}
+    mapped_targets: Set[str] = set()
+
+    for col in df.columns:
+        target = _map_column(col, cast(pd.Series, df[col]))
+
+        if target and target not in mapped_targets:
+            mapping[col] = target
+            mapped_targets.add(target)
+
+    df_renamed = df.rename(columns=mapping)
+    final_cols: List[str] = [c for c in TARGET_COLUMNS if c in df_renamed.columns]
+
+    return cast(pd.DataFrame, df_renamed.loc[:, final_cols]).copy()
+
+
+# =============================================================================
+# 9. CLI TEST RUNNER (hanya berjalan saat file dieksekusi langsung)
+# =============================================================================
+
+if __name__ == "__main__":
+    # --- Dataset uji: nama kolom sengaja dibuat berantakan ---
+    test_cases = [
+        {
+            "label": "Test 1 — Campuran spasi, CamelCase, underscore",
+            "data": {
+                "Kode Produk": ["PRD-001", "PRD-002", "PRD-003"],
+                "NamaProduk": ["Laptop Asus", "Mouse Logitech", "Keyboard Mech"],
+                "Harga_Jual": [12_000_000, 350_000, 850_000],
+                "sisa_stok": [15, 200, 75],
+                "jenis_barang": ["Elektronik", "Aksesori", "Aksesori"],
+            },
+        },
+        {
+            "label": "Test 2 — Singkatan & ML fallback",
+            "data": {
+                "prc": [5000, 15000, 8500],
+                "ctg": ["Minuman", "Makanan", "Snack"],
+                "stck": [100, 50, 200],
+                "item_barcode": ["ITM-01", "ITM-02", "ITM-03"],
+                "goods_name": ["Air Mineral", "Roti Tawar", "Keripik"],
+            },
+        },
+        {
+            "label": "Test 3 — Singkatan agresif ala sistem POS lama",
+            "data": {
+                "kd_brg": ["B-001", "B-002", "B-003"],
+                "nm_brg": ["Sabun Mandi", "Sampo", "Pasta Gigi"],
+                "hrg_jual": [5_000, 18_000, 12_000],
+                "jml_stk": [300, 150, 200],
+                "jns_brg": ["Perawatan", "Perawatan", "Perawatan"],
+            },
+        },
+        {
+            "label": "Test 4 — Typo pada nama kolom",
+            "data": {
+                "prodcut_id": ["X-01", "X-02", "X-03"],
+                "prodcut_name": ["Minyak Goreng", "Tepung Terigu", "Gula Pasir"],
+                "priice": [14_000, 9_000, 13_000],
+                "stcok": [80, 120, 60],
+                "katgori": ["Bahan Pokok", "Bahan Pokok", "Bahan Pokok"],
+            },
+        },
+        {
+            "label": "Test 5 — Verbose & database prefix",
+            "data": {
+                "tbl_product_id": ["SKU-101", "SKU-102", "SKU-103"],
+                "nama_lengkap_produk": [
+                    "Monitor LG 24",
+                    "Webcam Logitech",
+                    "Headset Sony",
+                ],
+                "harga_jual_per_unit": [2_500_000, 450_000, 750_000],
+                "jumlah_stok_tersedia": [10, 35, 20],
+                "kategori_produk": ["Elektronik", "Elektronik", "Elektronik"],
+            },
+        },
+    ]
+
+    for tc in test_cases:
+        df_in = pd.DataFrame(tc["data"])
+
+        print("\n" + "=" * 60)
+        print(f"  {tc['label']}")
+        print("=" * 60)
+        print("\n[INPUT]  Kolom asli  :", df_in.columns.tolist())
+
+        df_out = standardize_dataframe(df_in)
+
+        print("[OUTPUT] Kolom hasil :", df_out.columns.tolist())
+        print()
+        print(df_out.to_string(index=False))
+
+        missing = [c for c in TARGET_COLUMNS if c not in df_out.columns]
+        if missing:
+            print(f"\n[PERINGATAN] Kolom tidak terpetakan: {missing}")
         else:
-            st.success("Berhasil distandarisasi!")
-            st.dataframe(df_final, use_container_width=True)
-            
-            # Simulasi tombol simpan (hanya download ke lokal, tidak ke BigQuery)
-            csv_data = df_final.to_csv(index=False).encode('utf-8')
-            st.download_button(
-                label="📥 Download Hasil Standarisasi",
-                data=csv_data,
-                file_name=f"bersih_{uploaded_file.name}",
-                mime="text/csv"
-            )
+            print(f"\n[OK] Semua {len(TARGET_COLUMNS)} kolom berhasil dipetakan.")

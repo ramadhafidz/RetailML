@@ -1,20 +1,41 @@
-import pandas as pd
 import re
+
+import pandas as pd
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
-from sklearn.feature_extraction.text import TfidfVectorizer
 
+# --- 1. KONFIGURASI TARGET SCHEMA & KAMUS ---
 TARGET_COLUMNS = ["product_id", "product_name", "price", "stock", "category"]
 
 TRAINING_ALIASES = {
-    "product_id": ["product_id", "prod_id", "id_barang", "sku_code", "kode_produk", "kode_barang"],
-    "product_name": ["product_name", "p_name", "nama_produk", "item_desc", "nama_barang", "deskripsi_produk"],
+    "product_id": [
+        "product_id",
+        "prod_id",
+        "id_barang",
+        "sku_code",
+        "kode_produk",
+        "kode_barang",
+    ],
+    "product_name": [
+        "product_name",
+        "p_name",
+        "nama_produk",
+        "item_desc",
+        "nama_barang",
+        "deskripsi_produk",
+    ],
     "price": ["price", "prc", "harga_jual", "unit_price", "harga", "nominal"],
     "stock": ["stock", "stok", "stok_tersedia", "qty_on_hand", "jumlah_stok", "qty"],
-    "category": ["category", "cat", "kategori_barang", "department", "jenis_produk", "kategori"],
+    "category": [
+        "category",
+        "cat",
+        "kategori_barang",
+        "department",
+        "jenis_produk",
+        "kategori",
+    ],
 }
-
-MODEL_THRESHOLD = 0.45
 
 TOKEN_HINTS = {
     "product_id": {"id", "kode", "sku", "item", "barang"},
@@ -24,12 +45,26 @@ TOKEN_HINTS = {
     "category": {"category", "cat", "kategori", "klasifikasi", "department", "segmen"},
 }
 
+IGNORE_HINTS = {
+    "note",
+    "catatan",
+    "anomaly",
+    "anomali",
+    "comment",
+    "remark",
+    "remarks",
+    "meta",
+    "metadata",
+}
+MODEL_THRESHOLD = 0.45
+
 ALIAS_LOOKUP = {}
 for target, aliases in TRAINING_ALIASES.items():
     for alias in aliases:
         ALIAS_LOOKUP[re.sub(r"[^a-z0-9]+", "", alias.lower())] = target
 
 
+# --- 2. FUNGSI HELPER TEXT PROCESSING ---
 def _normalize_text(value):
     return str(value).strip().lower()
 
@@ -40,8 +75,7 @@ def _canonicalize_text(value):
 
 def _tokenize_column_name(column_name):
     normalized = str(column_name).strip().lower().replace("-", "_")
-    tokens = [token for token in re.split(r"[^a-z0-9]+", normalized) if token]
-    return tokens
+    return [token for token in re.split(r"[^a-z0-9]+", normalized) if token]
 
 
 def _build_training_examples():
@@ -54,17 +88,17 @@ def _build_training_examples():
     return texts, labels
 
 
+# --- 3. MODEL MACHINE LEARNING ---
 def train_column_model():
     texts, labels = _build_training_examples()
     model = Pipeline(
         steps=[
-            (
-                "tfidf",
-                TfidfVectorizer(analyzer="char_wb", ngram_range=(2, 4)),
-            ),
+            ("tfidf", TfidfVectorizer(analyzer="char_wb", ngram_range=(2, 4))),
             (
                 "clf",
-                LogisticRegression(max_iter=2000, class_weight="balanced", random_state=42),
+                LogisticRegression(
+                    max_iter=2000, class_weight="balanced", random_state=42
+                ),
             ),
         ]
     )
@@ -72,17 +106,12 @@ def train_column_model():
     return model
 
 
-def build_column_signature(column_name, series=None, max_samples=3):
-    parts = [_normalize_text(column_name)]
-    if series is not None:
-        sample_values = series.dropna().astype(str).head(max_samples).tolist()
-        for value in sample_values:
-            normalized_value = _normalize_text(value)
-            if normalized_value:
-                parts.append(normalized_value)
-    return " ".join(part for part in parts if part)
+# [PERBAIKAN]: Fokus menganalisis nama kolom saja untuk TF-IDF
+def build_column_signature(column_name):
+    return _normalize_text(column_name)
 
 
+# --- 4. ENGINE PENCOCOKAN BERLAPIS (HYBRID) ---
 def resolve_alias_target(column_name):
     canonical_name = _canonicalize_text(column_name)
     if canonical_name in ALIAS_LOOKUP:
@@ -92,9 +121,11 @@ def resolve_alias_target(column_name):
 
 def resolve_name_hint(column_name):
     tokens = _tokenize_column_name(column_name)
+    if any(token in IGNORE_HINTS for token in tokens):
+        return None, 0.0
+
     best_target = None
     best_score = 0
-
     for target, hints in TOKEN_HINTS.items():
         score = sum(1 for token in tokens if token in hints)
         if score > best_score:
@@ -103,7 +134,6 @@ def resolve_name_hint(column_name):
 
     if best_target is not None and best_score > 0:
         return best_target, min(0.85, 0.55 + (0.1 * best_score))
-
     return None, 0.0
 
 
@@ -113,6 +143,18 @@ def resolve_value_hint(series):
         for value in series.dropna().astype(str).head(5).tolist()
         if _normalize_text(value)
     ]
+
+    if (
+        sample_values
+        and sum(
+            1
+            for value in sample_values
+            if len(value) > 20
+            or re.search(r"\b(note|catatan|anomaly|anomali)\b", value)
+        )
+        >= 2
+    ):
+        return None, 0.0
 
     if not sample_values:
         return None, 0.0
@@ -151,6 +193,9 @@ def resolve_value_hint(series):
 
 
 def predict_column_target(model, column_name, series=None):
+    if any(token in IGNORE_HINTS for token in _tokenize_column_name(column_name)):
+        return None, 0.0
+
     alias_target, alias_confidence = resolve_alias_target(column_name)
     if alias_target is not None:
         return alias_target, alias_confidence
@@ -164,7 +209,7 @@ def predict_column_target(model, column_name, series=None):
         if value_target is not None:
             return value_target, value_confidence
 
-    signature = build_column_signature(column_name, series)
+    signature = build_column_signature(column_name)
     probabilities = model.predict_proba([signature])[0]
     best_index = probabilities.argmax()
     best_target = model.classes_[best_index]
@@ -176,6 +221,7 @@ def predict_column_target(model, column_name, series=None):
     return best_target, confidence
 
 
+# --- 5. FUNGSI UTAMA UNTUK DIPANGGIL OLEH FASTAPI / CLOUD FUNCTION ---
 def standardize_dataframe(df_raw, source_file=None):
     model = train_column_model()
     mapping = {}
@@ -184,7 +230,9 @@ def standardize_dataframe(df_raw, source_file=None):
 
     ranked_predictions = []
     for column in df_raw.columns:
-        predicted_target, confidence = predict_column_target(model, column, df_raw[column])
+        predicted_target, confidence = predict_column_target(
+            model, column, df_raw[column]
+        )
         diagnostics.append((column, predicted_target, confidence))
         if predicted_target is not None:
             ranked_predictions.append((confidence, column, predicted_target))
@@ -207,6 +255,10 @@ def standardize_dataframe(df_raw, source_file=None):
     if source_file is not None:
         standardized["source_file"] = source_file
 
-    ordered_columns = TARGET_COLUMNS + (["source_file"] if source_file is not None else [])
+    ordered_columns = TARGET_COLUMNS + (
+        ["source_file"] if source_file is not None else []
+    )
     standardized = standardized[ordered_columns]
-    return standardized, mapping, diagnostics
+
+    # Kembalikan dataframe yang sudah rapi
+    return standardized
