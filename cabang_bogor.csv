@@ -1,0 +1,5 @@
+stock,category,product_name,product_id,price,anomaly_note
+18,Minuman,Teh Botol 350ml,RTL201,5000,kolom acak
+50,Sembako,Gula Pasir 1kg,RTL202,17000,urutan beda
+7,Snack,Keripik Singkong,RTL203,12000,data sengaja tidak rapi
+0,Daily,Sabun Cuci Tangan,RTL204,15000,stock nol
