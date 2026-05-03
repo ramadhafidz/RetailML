@@ -1,6 +1,6 @@
 import pandas as pd
 import os
-from app_lokal import standardize_dataframe
+from column_mapper_lokal import standardize_dataframe
 
 # 1. Pastikan folder hasil_data dibuat
 os.makedirs('hasil_data', exist_ok=True)
