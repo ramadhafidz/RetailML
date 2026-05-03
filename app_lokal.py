@@ -55,6 +55,8 @@ ALIAS_DICT: Dict[str, str] = {
     "no": "product_id",
     "nomor": "product_id",
     "nomor_produk": "product_id",
+    "id_barang": "product_id",
+    "id_produk": "product_id",
     # --- product_name ---
     "nama": "product_name",
     "nama_produk": "product_name",
@@ -444,24 +446,96 @@ def _map_column(col_name: str, series: pd.Series) -> Optional[str]:
 
 
 # =============================================================================
-# 8. ENTRY POINT UTAMA
+# 8. FUNGSI CLEANSING & ENTRY POINT UTAMA
 # =============================================================================
 
 
-def standardize_dataframe(df: pd.DataFrame) -> pd.DataFrame:
+def _cleanse_dataframe(df: pd.DataFrame, filename: str) -> pd.DataFrame:
+    """
+    Menerapkan aturan pembersihan dan casting tipe data sesuai DATA_DICTIONARY.md
+    """
+    # 1. Pastikan semua kolom target ada (jika ML gagal map, isi dengan NA)
+    for c in TARGET_COLUMNS:
+        if c not in df.columns:
+            df[c] = pd.NA
+
+    df_clean = df[TARGET_COLUMNS].copy()
+
+    # 2. Cleansing product_id (string, strip, drop baris jika kosong)
+    df_clean["product_id"] = df_clean["product_id"].astype("string").str.strip()
+    df_clean["product_id"] = df_clean["product_id"].replace(["", "<NA>", "nan"], pd.NA)
+    df_clean = df_clean.dropna(subset=["product_id"])
+
+    # 3. Cleansing product_name (string, title case)
+    df_clean["product_name"] = (
+        df_clean["product_name"].astype("string").str.strip().str.title()
+    )
+
+    # 4. Cleansing price (Int64, remove Rp/./, fillna 0)
+    def _clean_price(val):
+        if pd.isna(val):
+            return 0
+        if isinstance(val, (int, float)):
+            return int(val)
+        # Hapus "Rp", spasi, titik, koma
+        s = (
+            str(val)
+            .lower()
+            .replace("rp", "")
+            .replace(" ", "")
+            .replace(".", "")
+            .replace(",", "")
+        )
+        try:
+            return int(s)
+        except ValueError:
+            return 0
+
+    df_clean["price"] = df_clean["price"].apply(_clean_price).astype("Int64")
+
+    # 5. Cleansing stock (Int64, numeric, fillna 0)
+    def _clean_stock(val):
+        if pd.isna(val):
+            return 0
+        try:
+            return int(float(val))  # float() handle string seperti "15.0"
+        except (ValueError, TypeError):
+            return 0
+
+    df_clean["stock"] = df_clean["stock"].apply(_clean_stock).astype("Int64")
+
+    # 6. Cleansing category (string, title case, fillna "Uncategorized")
+    df_clean["category"] = (
+        df_clean["category"]
+        .fillna("Uncategorized")
+        .astype("string")
+        .str.strip()
+        .str.title()
+    )
+    df_clean["category"] = df_clean["category"].replace(
+        ["", "Nan", "<Na>"], "Uncategorized"
+    )
+
+    # 7. Metadata Columns
+    df_clean["source_file"] = pd.Series(filename, index=df_clean.index, dtype="string")
+    df_clean["processed_at"] = pd.Timestamp.now("UTC")
+
+    return df_clean
+
+
+def standardize_dataframe(
+    df: pd.DataFrame, filename: str = "unknown_file.csv"
+) -> pd.DataFrame:
     """
     Terima DataFrame mentah dengan nama kolom sembarang,
-    kembalikan DataFrame bersih dengan skema standar Data Warehouse.
-
-    Kolom yang berhasil dipetakan ke target yang sama lebih dari sekali
-    akan menggunakan kolom pertama yang ditemukan (first-match wins).
-    Kolom yang tidak bisa dipetakan akan dihilangkan dari output.
+    kembalikan DataFrame bersih dengan skema standar Data Warehouse beserta Metadata.
 
     Args:
-        df: DataFrame mentah hasil baca CSV (input harus berupa objek di memori).
+        df: DataFrame mentah hasil baca CSV.
+        filename: Nama file sumber untuk kolom metadata 'source_file'.
 
     Returns:
-        pd.DataFrame dengan subset kolom sesuai TARGET_COLUMNS.
+        pd.DataFrame bersih dan sudah di-cast sesuai DATA_DICTIONARY.md.
     """
     mapping: Dict[str, str] = {}
     mapped_targets: Set[str] = set()
@@ -474,9 +548,9 @@ def standardize_dataframe(df: pd.DataFrame) -> pd.DataFrame:
             mapped_targets.add(target)
 
     df_renamed = df.rename(columns=mapping)
-    final_cols: List[str] = [c for c in TARGET_COLUMNS if c in df_renamed.columns]
 
-    return cast(pd.DataFrame, df_renamed.loc[:, final_cols]).copy()
+    # Masuk ke fase cleansing dan formatting
+    return _cleanse_dataframe(df_renamed, filename)
 
 
 # =============================================================================
@@ -540,6 +614,16 @@ if __name__ == "__main__":
                 "kategori_produk": ["Elektronik", "Elektronik", "Elektronik"],
             },
         },
+        {
+            "label": "Test 6 — Cleansing Format Harga & Drop NaN Product ID",
+            "data": {
+                "id_barang": ["ID-01", "", "ID-03", None],
+                "nama_barang": ["mie gacoan", " es teh ", "DIMSUM", "Tahu"],
+                "harga_rp": ["Rp 15.000", "Rp. 5,000", "12.500,00", None],
+                "stok_pcs": ["15.0", "10", None, "5"],
+                # category sengaja tidak dimasukkan untuk test default value "Uncategorized"
+            },
+        },
     ]
 
     for tc in test_cases:
@@ -550,9 +634,11 @@ if __name__ == "__main__":
         print("=" * 60)
         print("\n[INPUT]  Kolom asli  :", df_in.columns.tolist())
 
-        df_out = standardize_dataframe(df_in)
+        df_out = standardize_dataframe(df_in, filename="test_data.csv")
 
         print("[OUTPUT] Kolom hasil :", df_out.columns.tolist())
+        print("[DTYPES]")
+        print(df_out.dtypes.to_string())
         print()
         print(df_out.to_string(index=False))
 
