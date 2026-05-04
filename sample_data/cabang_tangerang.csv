@@ -1,0 +1,11 @@
+p_id,p_nm,prc,qte,ctg,loc
+TGR-01,Es Krim Cokelat, 12.000 ,30.5,Frozen,Freezer 1
+TGR-02,Es Krim Vanilla,12000,25.0,Frozen,Freezer 1
+TGR-03,Nugget Ayam,Rp 45.000,40.0,Frozen,Freezer 2
+TGR-04,Sosis Sapi,35000,,Frozen,Freezer 2
+TGR-05,Kentang Goreng,28000,50.0,Frozen,Freezer 2
+TGR-06,Bakso Sapi,"32.000,00",35.0,Frozen,Freezer 2
+,Siomay Ayam,25000,20.0,Frozen,Freezer 2
+TGR-08,Pempek Ikan,30000,15.0,Frozen,Freezer 2
+TGR-09,Yogurt Strawberry,8500,45.0,Dairy,Chiller 1
+TGR-10,Keju Cheddar,22000,30.0,Dairy,Chiller 1

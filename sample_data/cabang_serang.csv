@@ -1,0 +1,11 @@
+tbl_product_id,nama_lengkap_produk,harga_jual_per_unit,jumlah_stok_tersedia,kategori_produk,export_date
+SRG-A01,Daging Ayam 1kg,45000,20.0,Segar,2023-10-01
+SRG-A02,Daging Sapi 1kg,120000,15.0,Segar,2023-10-01
+SRG-A03,Telur Ayam 1kg,28000,50.0,Segar,2023-10-01
+SRG-B01,Bawang Merah 1kg,Rp 35.000,40.0,Bumbu,2023-10-01
+SRG-B02,Bawang Putih 1kg,40000,35.0,Bumbu,2023-10-01
+SRG-B03,Cabai Merah 1kg,"Rp50.000,00",,Bumbu,2023-10-01
+SRG-B04,Cabai Rawit 1kg,60000,10.0,Bumbu,2023-10-01
+,Garam Kemasan 500g,5000,100.0,Bumbu,2023-10-01
+SRG-C01,Sayur Bayam,3000,80.0,Sayuran,2023-10-01
+SRG-C02,Sayur Kangkung,3500,75.0,Sayuran,2023-10-01

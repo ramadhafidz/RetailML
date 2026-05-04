@@ -1,4 +1,0 @@
-product_id,product_name,price,stock,category,source_file
-RTL002,Minyak Goreng 2L,31500,12,Daily,cabang_cilegon.csv
-RTL003,Sabun Mandi Cair,24000,80,Soap,cabang_cilegon.csv
-RTL006,Kopi Instan,3000,500,Drink,cabang_cilegon.csv

@@ -1,0 +1,11 @@
+item_code,item_description,selling_price,available_qty,product_group,notes
+JKT-001,Beras Premium 5kg,Rp 64.500,45.0,Food & Beverage,
+JKT-002,Minyak Goreng 2L,"Rp31.500,00",12.0,Daily Needs,
+JKT-003,Sabun Mandi Cair,24000,80.0,Personal Care,
+JKT-004,Susu UHT 1L,18.000,20.0,Food & Beverage,
+JKT-005, Roti Tawar , Rp 15.000,15.0,Food & Beverage,promo
+,Gula Pasir 1kg,17000,50.0,Food & Beverage,missing id
+JKT-007,Teh Botol 350ml,5000,0.0,Beverage,
+JKT-008,Kopi Instan,3000,,Beverage,
+JKT-009,Mie Goreng Ayam,"3.500,00",200.5,Food & Beverage,
+JKT-010,Sampo Anti Ketombe,25000,-5.0,Personal Care,minus

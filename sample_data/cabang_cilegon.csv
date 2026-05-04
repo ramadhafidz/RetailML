@@ -1,0 +1,11 @@
+prodcut_id,pruduct_name,hargaa,stcok,katgori,petugas
+CLG-101,Sabun Cuci Piring,15000,50.0,Kebersihan,Agus
+CLG-102,Pembersih Lantai, Rp12.000,30.0,Kebersihan,Agus
+CLG-103,Pengharum Ruangan,18000,,Kebersihan,Agus
+CLG-104, Sikat Gigi ,5000,100.0,Perawatan,Budi
+, Pasta Gigi ,14000,80.0,Perawatan,Budi
+CLG-106,Shampo Bayi,"22.500,50",25.0,Perawatan Bayi,
+CLG-107,Sabun Mandi Bayi,17000,40.0,Perawatan Bayi,Budi
+CLG-108,Minyak Telon,25000,-2.0,Perawatan Bayi,Budi
+CLG-109,Bedak Bayi,13500,60.0,Perawatan Bayi,Agus
+CLG-110,Tisu Basah,15.000,75.0,Perawatan Bayi,Agus
