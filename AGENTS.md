@@ -33,8 +33,8 @@ Agar pengembangan tidak membingungkan, berikut adalah panduan arsitektur file ya
 - **`engine/column_mapper_core.py`**: Modul Engine Inti (*Core Logic*). Berisi logika hybrid matching (Alias, Token, Regex, ML TF-IDF) dan data cleansing sesuai `DATA_DICTIONARY.md`. File ini murni *stateless* dan menjadi satu-satunya sumber logika ML.
 - **`column_mapper.py`**: Wrapper *Production-Ready* untuk GCP/FastAPI. Hanya melakukan import dari `engine/column_mapper_core.py` agar deployment tetap bersih.
 - **`column_mapper_lokal.py`**: Wrapper *development* dengan CLI test runner (`if __name__ == "__main__":`) untuk uji cepat di lokal.
-- **`scripts/test_semua_cabang.py`**: *Script runner/tester* otomatis. Skrip ini mensimulasikan proses pipeline dengan membaca seluruh file CSV kotor di `sample_data/`, memprosesnya ke engine kita, dan menyimpan hasilnya ke `hasil_data/`.
+- **`scripts/test_semua_cabang.py`**: *Script runner/tester* otomatis. Skrip ini mensimulasikan proses pipeline dengan membaca seluruh file CSV kotor di `sample_data/`, memprosesnya ke engine kita, lalu menggabungkan semua hasil ke satu file CSV di `hasil_data/`.
 - **`scripts/generate_data.py`**: Generator data uji (opsional). Membuat file CSV kotor dengan berbagai anomali untuk stres-test engine.
 - **`sample_data/`**: Folder *input* berisi CSV mentah dari berbagai cabang (format POS lama, typo, anomali singkatan ekstrem).
-- **`hasil_data/`**: Folder *output* berisi CSV yang sudah distandarisasi dan dibersihkan (siap untuk Data Warehouse / BigQuery).
+- **`hasil_data/`**: Folder *output* berisi satu CSV gabungan yang sudah distandarisasi dan dibersihkan (siap untuk Data Warehouse / BigQuery).
 - **`docs/`**: Dokumentasi teknis (contoh: `GCP_DEPLOYMENT.md`, `API_CONTRACT.md`).
