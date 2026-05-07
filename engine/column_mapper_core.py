@@ -26,6 +26,39 @@ from sklearn.pipeline import Pipeline
 TARGET_COLUMNS = ["product_id", "product_name", "price", "stock", "category"]
 
 # =============================================================================
+# 1b. SEMANTIC DICTIONARY — Sinonim Antar-Bahasa
+# =============================================================================
+# Memetakan sinonim dari bahasa berbeda (Indo ↔ English ↔ singkatan)
+# Digunakan sebelum pencocokan untuk normalisasi semantik.
+
+SEMANTIC_SYNONYMS: Dict[str, List[str]] = {
+    # product_id synonyms
+    "product_id": ["id", "kode", "sku", "barcode", "no", "nomor", "code", "item_code"],
+    "sku": ["product_id", "id", "kode", "barcode"],
+    "id_barang": ["product_id", "id", "kode_barang"],
+    "id_produk": ["product_id", "id", "kode_produk"],
+    "sku_code": ["sku", "product_id", "id", "kode"],
+    # product_name synonyms  
+    "product_name": ["nama", "name", "barang", "item", "description", "desc", "deskripsi"],
+    "nama_produk": ["product_name", "nama", "barang"],
+    "item_desc": ["product_name", "description", "deskripsi", "nama"],
+    "item_name": ["product_name", "nama", "barang"],
+    # price synonyms
+    "price": ["harga", "cost", "tarif", "nilai", "selling_price", "unit_price"],
+    "harga": ["price", "cost", "tarif", "nilai"],
+    "harga_jual": ["price", "harga", "selling_price"],
+    # stock synonyms
+    "stock": ["stok", "qty", "quantity", "jumlah", "inventory", "tersedia", "persediaan"],
+    "stok": ["stock", "qty", "jumlah", "inventory"],
+    "qty_on_hand": ["stock", "stok", "qty", "quantity", "tersedia"],
+    "jumlah_stok": ["stock", "stok", "qty", "jumlah"],
+    # category synonyms
+    "category": ["kategori", "tipe", "jenis", "type", "group", "grup", "divisi"],
+    "kategori": ["category", "tipe", "jenis"],
+    "jenis_barang": ["category", "kategori", "jenis"],
+}
+
+# =============================================================================
 # 2. LAYER 1 — ALIAS DICTIONARY & IGNORE LIST
 # =============================================================================
 
@@ -65,6 +98,7 @@ ALIAS_DICT: Dict[str, str] = {
     "article_id": "product_id",
     "ref_id": "product_id",
     "sku": "product_id",
+    "sku_code": "product_id",  # BARU: Istilah retail spesifik
     "barcode": "product_id",
     "no": "product_id",
     "nomor": "product_id",
@@ -80,6 +114,7 @@ ALIAS_DICT: Dict[str, str] = {
     "item": "product_name",
     "barang": "product_name",
     "item_name": "product_name",
+    "item_desc": "product_name",  # BARU: Istilah retail spesifik
     "goods_name": "product_name",
     "description": "product_name",
     "deskripsi": "product_name",
@@ -101,7 +136,8 @@ ALIAS_DICT: Dict[str, str] = {
     "stok": "stock",
     "sisa": "stock",
     "sisa_stok": "stock",
-    "jumlah_stok": "stock",
+    "jty_on_hand": "stock",  # BARU: Istilah retail spesifik
+    "qumlah_stok": "stock",
     "qty": "stock",
     "quantity": "stock",
     "jumlah": "stock",
@@ -170,6 +206,7 @@ _TRAINING_CORPUS = [
     ("id_produk", "product_id"),
     ("kode_produk", "product_id"),
     ("sku", "product_id"),
+    ("sku_code", "product_id"),  # BARU: Istilah retail spesifik
     ("item_code", "product_id"),
     ("barcode", "product_id"),
     ("product_code", "product_id"),
@@ -184,6 +221,7 @@ _TRAINING_CORPUS = [
     ("product_name", "product_name"),
     ("nama_produk", "product_name"),
     ("item_name", "product_name"),
+    ("item_desc", "product_name"),  # BARU: Istilah retail spesifik
     ("barang", "product_name"),
     ("description", "product_name"),
     ("deskripsi", "product_name"),
@@ -194,6 +232,8 @@ _TRAINING_CORPUS = [
     ("item_description", "product_name"),
     ("nama", "product_name"),
     ("product_label", "product_name"),
+    ("item_nm", "product_name"),  # BARU: Singkatan
+    ("prod_nm", "product_name"),  # BARU: Singkatan
     # price
     ("price", "price"),
     ("harga", "price"),
@@ -205,14 +245,18 @@ _TRAINING_CORPUS = [
     ("retail_price", "price"),
     ("nilai", "price"),
     ("tarif", "price"),
-    ("prc", "price"),
+    ("prc", "price"),  # BARU: Singkatan penting
+    ("hrg", "price"),  # BARU: Singkatan
     ("harga_beli", "price"),
     ("sale_price", "price"),
     ("pricing", "price"),
+    ("unit_harga", "price"),  # BARU
+    ("hg", "price"),  # BARU: Singkatan ultra-pendek
     # stock
     ("stock", "stock"),
     ("stok", "stock"),
     ("qty", "stock"),
+    ("qty_on_hand", "stock"),  # BARU: Istilah retail spesifik
     ("quantity", "stock"),
     ("jumlah", "stock"),
     ("inventory", "stock"),
@@ -224,6 +268,10 @@ _TRAINING_CORPUS = [
     ("kuantitas", "stock"),
     ("qte", "stock"),
     ("unit_tersedia", "stock"),
+    ("jml", "stock"),  # BARU: Singkatan
+    ("jml_stk", "stock"),  # BARU: Singkatan
+    ("stk", "stock"),  # BARU: Singkatan
+    ("jml_brg", "stock"),  # BARU: Singkatan
     # category
     ("category", "category"),
     ("kategori", "category"),
@@ -239,6 +287,8 @@ _TRAINING_CORPUS = [
     ("jenis_barang", "category"),
     ("cat", "category"),
     ("ctg", "category"),
+    ("ktg", "category"),  # BARU: Singkatan
+    ("jns", "category"),  # BARU: Singkatan
     # -------------------------------------------------------------------------
     # 🔴 ANOMALI PRIORITAS TINGGI — Singkatan agresif (konteks retail Indonesia)
     # -------------------------------------------------------------------------
@@ -250,6 +300,7 @@ _TRAINING_CORPUS = [
     ("kd_item", "product_id"),
     ("no_prod", "product_id"),
     ("no_brg", "product_id"),
+    ("pr_id", "product_id"),  # BARU
     # product_name — singkatan
     ("nm_brg", "product_name"),
     ("nm_prod", "product_name"),
@@ -259,12 +310,15 @@ _TRAINING_CORPUS = [
     ("p_name", "product_name"),
     ("p_nm", "product_name"),
     ("nama_brg", "product_name"),
+    ("nm", "product_name"),  # BARU
     # price — singkatan
     ("hrg", "price"),
     ("hrg_jl", "price"),
     ("hrg_sat", "price"),
     ("hrg_jual", "price"),
     ("hg", "price"),
+    ("pr", "price"),  # BARU
+    ("p", "price"),  # BARU: Ultra-pendek
     # stock — singkatan
     ("jml", "stock"),
     ("jml_stk", "stock"),
@@ -272,6 +326,8 @@ _TRAINING_CORPUS = [
     ("jml_brg", "stock"),
     ("qty_stk", "stock"),
     ("sisa_stk", "stock"),
+    ("qt", "stock"),  # BARU
+    ("qnt", "stock"),  # BARU
     # category — singkatan
     ("ktgr", "category"),
     ("ktg", "category"),
@@ -279,6 +335,7 @@ _TRAINING_CORPUS = [
     ("jns_brg", "category"),
     ("div", "category"),
     ("kat", "category"),
+    ("kg", "category"),  # BARU
     # -------------------------------------------------------------------------
     # 🔴 ANOMALI PRIORITAS TINGGI — Typo yang char n-gram kurang tangkap
     # -------------------------------------------------------------------------
@@ -297,6 +354,7 @@ _TRAINING_CORPUS = [
     ("prce", "price"),
     ("hargaa", "price"),
     ("harrga", "price"),
+    ("prise", "price"),  # BARU: Typo umum
     # stock — typo
     ("stcok", "stock"),
     ("stoock", "stock"),
@@ -304,6 +362,7 @@ _TRAINING_CORPUS = [
     ("kwantitas", "stock"),
     ("kuantias", "stock"),
     ("quantiti", "stock"),
+    ("qaunttity", "stock"),  # BARU
     # category — typo
     ("katgori", "category"),
     ("karegori", "category"),
@@ -311,6 +370,7 @@ _TRAINING_CORPUS = [
     ("categori", "category"),
     ("catagory", "category"),
     ("kategorii", "category"),
+    ("kategorry", "category"),  # BARU
     # -------------------------------------------------------------------------
     # 🟡 ANOMALI PRIORITAS SEDANG — Verbose + database/system prefix
     # -------------------------------------------------------------------------
@@ -321,11 +381,13 @@ _TRAINING_CORPUS = [
     ("id_unik_produk", "product_id"),
     ("product_id_utama", "product_id"),
     ("nomor_kode_produk", "product_id"),
+    ("identifier_produk", "product_id"),  # BARU
     # product_name — verbose & prefix
     ("nama_lengkap_produk", "product_name"),
     ("full_product_name", "product_name"),
     ("nama_produk_lengkap", "product_name"),
     ("complete_item_name", "product_name"),
+    ("deskripsi_lengkap", "product_name"),  # BARU
     # price — verbose & prefix
     ("f_harga_jual", "price"),
     ("tbl_harga", "price"),
@@ -333,6 +395,8 @@ _TRAINING_CORPUS = [
     ("harga_per_unit", "price"),
     ("harga_satuan_produk", "price"),
     ("total_harga_satuan", "price"),
+    ("harga_jual_akhir", "price"),  # BARU
+    ("harga_retail", "price"),  # BARU
     # stock — verbose & prefix
     ("total_stok_tersedia", "stock"),
     ("jumlah_stok_tersedia", "stock"),
@@ -340,6 +404,8 @@ _TRAINING_CORPUS = [
     ("persediaan", "stock"),
     ("stok_tersedia", "stock"),
     ("jumlah_persediaan", "stock"),
+    ("total_inventory", "stock"),  # BARU
+    ("stok_habis", "stock"),  # BARU: Konteks retail
     # category — verbose & prefix
     ("kategori_produk", "category"),
     ("jenis_produk_utama", "category"),
@@ -348,6 +414,7 @@ _TRAINING_CORPUS = [
     ("divisi_produk", "category"),
     ("kelompok_produk", "category"),
     ("golongan_produk", "category"),
+    ("kategori_utama", "category"),  # BARU
 ]
 
 # =============================================================================
@@ -395,9 +462,36 @@ def _match_layer1_alias(norm_col: str) -> Optional[str]:
     return ALIAS_DICT.get(norm_col)
 
 
+def _match_layer2_semantic(norm_col: str) -> Optional[str]:
+    """
+    Layer 2b: Semantic matching menggunakan synonym dictionary.
+    
+    Mengatasi masalah sinonim antar-bahasa yang TF-IDF tidak tangkap,
+    seperti "harga" (Indonesia) vs "price" (English).
+    
+    Strategi:
+      1. Cek apakah norm_col ada sebagai key di SEMANTIC_SYNONYMS
+      2. Jika ada, lihat daftar sinonim dan coba map ke target schema
+      3. Prioritas: Jika sinonim matching memberikan hasil yang jelas, pakai itu
+    """
+    if norm_col not in SEMANTIC_SYNONYMS:
+        return None
+    
+    # Ambil daftar sinonim untuk kolom ini
+    synonyms = SEMANTIC_SYNONYMS[norm_col]
+    
+    # Cek apakah ada sinonim yang bisa langsung di-map
+    # Strategi: cari yang paling umum/standar (ada di ALIAS_DICT)
+    for synonym in synonyms:
+        if synonym in ALIAS_DICT:
+            return ALIAS_DICT[synonym]
+    
+    return None
+
+
 def _match_layer2_token(norm_col: str) -> Optional[str]:
     """
-    Layer 2: Pencocokan berdasarkan token hint dalam nama kolom.
+    Layer 2c: Pencocokan berdasarkan token hint dalam nama kolom.
     Jika ada beberapa kandidat, pilih yang memiliki token hint terpanjang
     untuk mengurangi ambiguitas.
     """
@@ -431,23 +525,59 @@ def _match_layer3_value_regex(series: pd.Series) -> Optional[str]:
     return None
 
 
+def _get_adaptive_threshold(norm_col: str) -> float:
+    """
+    Hitung threshold secara adaptive berdasarkan panjang kolom.
+    
+    Logika:
+      - Kolom pendek (< 5 karakter): threshold lebih rendah (0.25)
+        Contoh: "prc", "hrg", "stk" — singkatan spesifik retail
+      - Kolom sedang (5-10): threshold normal (0.35)
+        Contoh: "harga", "stok", "kategori"
+      - Kolom panjang (> 10): threshold tinggi (0.45)
+        Contoh: "harga_jual_per_unit" — semakin panjang, semakin spesifik
+    
+    Ini mengatasi masalah istilah singkat seperti "prc" (0.1589) yang
+    seharusnya lolos tapi tidak karena threshold terlalu tinggi.
+    """
+    col_len = len(norm_col)
+    if col_len < 5:
+        return 0.25  # Agresif untuk singkatan (prc, hrg, stk, jml)
+    elif col_len <= 10:
+        return 0.35  # Moderat untuk nama normal
+    else:
+        return 0.45  # Ketat untuk nama verbose
+
+
 def _match_layer4_ml(norm_col: str) -> Optional[str]:
     """
     Layer 4: Prediksi TF-IDF + Logistic Regression.
-    Hanya menerima prediksi dengan confidence >= 40%.
+    Gunakan adaptive threshold berdasarkan panjang nama kolom.
+    
+    Perubahan dari sebelumnya:
+      - Dulu: threshold statis 0.40
+      - Sekarang: threshold adaptive 0.25-0.45
     """
     probas = _ML_PIPELINE.predict_proba([norm_col])[0]
     max_proba = probas.max()
+    threshold = _get_adaptive_threshold(norm_col)
 
-    if max_proba >= 0.40:
+    if max_proba >= threshold:
         return str(_ML_PIPELINE.classes_[probas.argmax()])
     return None
 
 
 def _map_column(col_name: str, series: pd.Series) -> Optional[str]:
     """
-    Jalankan 4 lapisan pencocokan secara berurutan untuk satu kolom.
+    Jalankan 5 lapisan pencocokan secara berurutan untuk satu kolom.
     Kembalikan nama kolom target, atau None jika tidak ada yang cocok.
+    
+    Urutan pencocokan (dari paling akurat ke fallback):
+      1. Layer 1: Alias Dictionary (eksak match)
+      2. Layer 2b: Semantic Synonyms (sinonim antar-bahasa)
+      3. Layer 2c: Token Hints (kata kunci dalam nama)
+      4. Layer 3: Value Regex (pola nilai dalam kolom)
+      5. Layer 4: TF-IDF ML (fallback dengan threshold adaptive)
     """
     norm = _normalize(col_name)
 
@@ -456,6 +586,7 @@ def _map_column(col_name: str, series: pd.Series) -> Optional[str]:
 
     return (
         _match_layer1_alias(norm)
+        or _match_layer2_semantic(norm)
         or _match_layer2_token(norm)
         or _match_layer3_value_regex(series)
         or _match_layer4_ml(norm)
