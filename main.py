@@ -33,7 +33,7 @@ def process_new_csv(cloud_event):
 
     # 5. Kirim hasilnya langsung ke BigQuery
     print("Mengirim data bersih ke BigQuery...")
-    # TODO: Sesuaikan dengan project id, dataset, dan nama tabel tujuan
-    # df_bersih.to_gbq("nama_project.dataset.integrated_retail_data", if_exists="append")
+    # Menulis ke project `datawarehouse-493606` seperti di backend
+    df_bersih.to_gbq("datawarehouse-493606.retail_warehouse.integrated_retail_data", if_exists="append")
 
     print("Proses ETL selesai!")

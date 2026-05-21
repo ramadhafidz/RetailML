@@ -27,7 +27,41 @@ ml-etl-pipeline/
 
 > **PENTING:** File `column_mapper_lokal.py`, folder `scripts/`, dan `sample_data/` TIDAK PERLU di-deploy ke GCP karena hanya untuk testing lokal.
 
-## 1. File `requirements.txt`
+## 1. Instalasi Google Cloud CLI (gcloud)
+
+Anda membutuhkan `gcloud` CLI untuk bisa melakukan deploy dari komputer lokal Anda ke GCP.
+
+### 🪟 Windows
+1. Unduh penginstal Google Cloud CLI versi terbaru dari [situs resmi Google](https://cloud.google.com/sdk/docs/install#windows).
+2. Jalankan file `.exe` yang diunduh.
+3. Ikuti instruksi penginstalan di layar, dan setujui saat ada pilihan "Start Google Cloud SDK Shell".
+4. Setelah instalasi selesai, terminal akan terbuka. Lakukan otentikasi dengan perintah:
+   ```bash
+   gcloud auth login
+   gcloud config set project datawarehouse-493606
+   ```
+
+### 🐧 Linux (Debian/Ubuntu/Pop!_OS)
+Buka terminal dan jalankan perintah berikut:
+```bash
+sudo apt-get update
+sudo apt-get install apt-transport-https ca-certificates gnupg curl
+
+# Import public key Google Cloud
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
+
+# Tambahkan repositori gcloud
+echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+
+# Update & Install
+sudo apt-get update && sudo apt-get install google-cloud-cli
+
+# Login dan Set Project
+gcloud auth login
+gcloud config set project datawarehouse-493606
+```
+
+## 2. File `requirements.txt`
 
 Pastikan `requirements.txt` untuk GCF berisi library berikut:
 
@@ -39,7 +73,7 @@ google-cloud-storage==2.*
 pandas-gbq==0.*
 ```
 
-## 2. File `main.py` (Entry Point GCP)
+## 3. File `main.py` (Entry Point GCP)
 
 File `main.py` bertindak sebagai "Kurir". Ia menangani otentikasi GCP, membaca file dari GCS, memanggil fungsi ML kita, dan menulis ke BigQuery. 
 
@@ -109,12 +143,12 @@ def process_new_csv(cloud_event):
 
 ```
 
-## 3. Perintah Deployment (gcloud CLI)
+## 4. Perintah Deployment (gcloud CLI)
 
 Untuk men-deploy kode di atas ke Google Cloud Functions (Gen 2) yang di-trigger oleh bucket GCS mentah (`retail-raw-zone`), gunakan perintah berikut:
 
 ```bash
-gcloud functions deploy ml-etl-pipeline \
+gcloud functions deploy etl-retail-pipeline \
     --gen2 \
     --runtime=python311 \
     --region=asia-southeast2 \
