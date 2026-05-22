@@ -64,5 +64,5 @@ Jika *workflow* GitHub Actions telah berstatus **Ceklis Hijau**, Anda dapat memv
 1. Buka [Google Cloud Console](https://console.cloud.google.com/).
 2. Di kolom pencarian atas, ketik **"Cloud Run"** (karena Google Cloud Functions Generasi ke-2 berjalan di atas infrastruktur Cloud Run) lalu pilih menu tersebut.
 3. Di panel sebelah kiri, klik menu **Services**.
-4. Anda akan melihat daftar layanan yang berjalan. Cari baris dengan nama `proses-file-otomatis` (seharusnya ada ikon centang hijau di sampingnya yang menandakan layanan sehat).
-5. Klik nama `proses-file-otomatis` tersebut untuk melihat metrik *dashboard* secara rinci, termasuk jumlah *request*, penggunaan memori, serta tab **Logs** untuk memantau apakah fungsi berhasil memproses CSV saat ada *upload*.
+4. Anda akan melihat daftar layanan yang berjalan. Cari baris dengan nama `retail-ml-engine` (seharusnya ada ikon centang hijau di sampingnya yang menandakan layanan sehat).
+5. Klik nama `retail-ml-engine` tersebut untuk melihat metrik *dashboard* secara rinci, termasuk jumlah *request*, penggunaan memori, serta tab **Logs** untuk memantau apakah fungsi berhasil memproses CSV saat ada *upload*.
