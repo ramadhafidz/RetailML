@@ -6,7 +6,7 @@ set -e
 
 echo "🚀 Mendeploy ML Engine ke Google Cloud Functions..."
 
-gcloud functions deploy proses-file-otomatis \
+gcloud functions deploy retail-ml-engine \
   --gen2 \
   --runtime=python310 \
   --region=asia-southeast2 \
