@@ -1,0 +1,21 @@
+.gcloudignore
+.git
+.gitignore
+
+# Folder virtual environment & cache
+env/
+__pycache__/
+*.pyc
+
+# Folder lokal testing & dokumentasi
+sample_data/
+hasil_data/
+scripts/
+docs/
+
+# File eksekusi lokal & dokumentasi
+column_mapper_lokal.py
+test_improvements.py
+deploy.sh
+AGENTS.md
+DATA_DICTIONARY.md
