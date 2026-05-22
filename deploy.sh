@@ -8,7 +8,7 @@ echo "🚀 Mendeploy ML Engine ke Google Cloud Functions..."
 
 gcloud functions deploy retail-ml-engine \
   --gen2 \
-  --runtime=python310 \
+  --runtime=python311 \
   --region=asia-southeast2 \
   --source=. \
   --entry-point=process_new_csv \
