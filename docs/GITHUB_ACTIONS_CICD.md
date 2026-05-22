@@ -6,6 +6,9 @@ Agar robot GitHub mendapatkan izin (otorisasi) untuk mengelola layanan di Google
 
 ## Langkah 1: Membuat Service Account Key di Google Cloud
 
+> [!NOTE]
+> **Penting untuk Kontributor:** Jika Anda bukan pemilik proyek (Owner) atau tidak memiliki peran `Project IAM Admin`, Anda akan menemui *error* **"IAM policy update failed"** saat mencoba menyimpan *role* (Langkah 4). Jika ini terjadi, mintalah teman/pemilik proyek untuk melakukan Langkah 1 ini dan memberikan file JSON-nya kepada Anda.
+
 1. Buka [Google Cloud Console](https://console.cloud.google.com/).
 2. Pastikan Anda berada di proyek yang benar (cek menu *dropdown* di bagian atas, pilih `datawarehouse-493606`).
 3. Dari menu navigasi kiri, pilih **IAM & Admin** > **Service Accounts**.
