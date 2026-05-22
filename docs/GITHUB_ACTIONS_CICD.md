@@ -54,3 +54,15 @@ Semuanya sudah siap! Sekarang mari kita pastikan robot tersebut bekerja.
 3. Segera buka halaman repositori GitHub Anda dan klik tab **Actions**.
 4. Anda akan melihat sebuah *workflow* berwarna kuning sedang diproses (biasanya memakan waktu 1-3 menit).
 5. Jika log selesai dan berubah menjadi ikon **Ceklis Hijau**, selamat! Kode ML Anda berhasil ter-deploy ke infrastruktur serverless Google secara otomatis tanpa perlu menyentuh terminal lagi.
+
+---
+
+## Langkah 4: Memverifikasi Hasil Deployment di Google Cloud Console
+
+Jika *workflow* GitHub Actions telah berstatus **Ceklis Hijau**, Anda dapat memverifikasinya langsung di *dashboard* Google Cloud:
+
+1. Buka [Google Cloud Console](https://console.cloud.google.com/).
+2. Di kolom pencarian atas, ketik **"Cloud Run"** (karena Google Cloud Functions Generasi ke-2 berjalan di atas infrastruktur Cloud Run) lalu pilih menu tersebut.
+3. Di panel sebelah kiri, klik menu **Services**.
+4. Anda akan melihat daftar layanan yang berjalan. Cari baris dengan nama `proses-file-otomatis` (seharusnya ada ikon centang hijau di sampingnya yang menandakan layanan sehat).
+5. Klik nama `proses-file-otomatis` tersebut untuk melihat metrik *dashboard* secara rinci, termasuk jumlah *request*, penggunaan memori, serta tab **Logs** untuk memantau apakah fungsi berhasil memproses CSV saat ada *upload*.
