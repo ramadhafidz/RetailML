@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # Pastikan Anda sudah login ke gcloud: `gcloud auth login`
 # dan sudah set project: `gcloud config set project datawarehouse-493606`
