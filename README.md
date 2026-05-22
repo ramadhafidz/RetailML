@@ -12,7 +12,7 @@ It solves the problem of messy, unstructured retail data by mapping varying colu
 - **CI/CD**: GitHub Actions
 
 ## ⚙️ Architecture Workflow
-1. **Trigger (Eventarc)**: A new raw CSV file is uploaded to the GCS bucket (`retail-data-raw-493606`) by the Backend.
+1. **Trigger (Eventarc)**: A new raw CSV file is uploaded to the GCS bucket (`retail-data-raw-izz`) by the Backend.
 2. **Execution**: The Cloud Function (`main.py`) wakes up, downloads the CSV into memory, and runs the data through the core engine (`engine/column_mapper_core.py`).
 3. **Storage**: The cleaned, standardized DataFrame is appended directly to the BigQuery table (`retail_warehouse.integrated_retail_data`).
 

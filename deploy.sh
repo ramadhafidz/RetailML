@@ -13,7 +13,7 @@ gcloud functions deploy proses-file-otomatis \
   --source=. \
   --entry-point=process_new_csv \
   --trigger-event-filters="type=google.cloud.storage.object.v1.finalized" \
-  --trigger-event-filters="bucket=retail-data-raw-493606" \
+  --trigger-event-filters="bucket=retail-data-raw-izz" \
   --memory=512MB \
   --timeout=120s
 
