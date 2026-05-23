@@ -15,6 +15,7 @@ gcloud functions deploy retail-ml-engine \
   --trigger-event-filters="type=google.cloud.storage.object.v1.finalized" \
   --trigger-event-filters="bucket=retail-data-raw-izz" \
   --memory=512MB \
-  --timeout=120s
+  --timeout=120s \
+  --allow-unauthenticated
 
 echo "✅ Deploy selesai!"
