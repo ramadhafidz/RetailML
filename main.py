@@ -46,9 +46,6 @@ def process_new_csv(cloud_event):
     bq_client = bigquery.Client()
     table_id = "datawarehouse-493606.retail_warehouse.integrated_retail_data"
     
-    # Konversi ke string agar BQ tidak bingung dengan tipe data campuran
-    df_bersih = df_bersih.astype(str)
-    
     job_config = bigquery.LoadJobConfig(write_disposition="WRITE_APPEND")
     job = bq_client.load_table_from_dataframe(df_bersih, table_id, job_config=job_config)
     job.result() # Tunggu hingga upload selesai
