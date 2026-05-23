@@ -21,8 +21,14 @@ def process_new_csv(cloud_event):
     # 2. Download file CSV tersebut dari Google Cloud Storage
     storage_client = storage.Client()
     bucket = storage_client.bucket(bucket_name)
-    blob = bucket.blob(file_name)
+    # Gunakan get_blob untuk mengambil metadata dari server
+    blob = bucket.get_blob(file_name)
     csv_bytes = blob.download_as_bytes()
+
+    # Ekstrak metadata pengunggah
+    uploader = "unknown"
+    if blob.metadata and "uploaded_by" in blob.metadata:
+        uploader = blob.metadata["uploaded_by"]
 
     # 3. Baca dengan Pandas
     df_mentah = pd.read_csv(io.BytesIO(csv_bytes))
@@ -30,6 +36,9 @@ def process_new_csv(cloud_event):
     # 4. KASIH KE MESIN ML KITA!
     print("Memulai proses Schema Matching & Cleansing...")
     df_bersih = standardize_dataframe(df_mentah, filename=file_name)
+    
+    # Masukkan metadata pengunggah ke dataframe sebelum masuk Data Warehouse
+    df_bersih["uploaded_by"] = uploader
 
     # 5. Kirim hasilnya langsung ke BigQuery
     print("Mengirim data bersih ke BigQuery...")
