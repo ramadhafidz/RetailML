@@ -2,7 +2,7 @@ import io
 
 import functions_framework
 import pandas as pd
-from google.cloud import storage
+from google.cloud import storage, bigquery
 
 # Mengimpor fungsi ML dari file engine kita
 from column_mapper import standardize_dataframe
@@ -43,6 +43,14 @@ def process_new_csv(cloud_event):
     # 5. Kirim hasilnya langsung ke BigQuery
     print("Mengirim data bersih ke BigQuery...")
     # Menulis ke project `datawarehouse-493606` seperti di backend
-    df_bersih.to_gbq("datawarehouse-493606.retail_warehouse.integrated_retail_data", if_exists="append")
+    bq_client = bigquery.Client()
+    table_id = "datawarehouse-493606.retail_warehouse.integrated_retail_data"
+    
+    # Konversi ke string agar BQ tidak bingung dengan tipe data campuran
+    df_bersih = df_bersih.astype(str)
+    
+    job_config = bigquery.LoadJobConfig(write_disposition="WRITE_APPEND")
+    job = bq_client.load_table_from_dataframe(df_bersih, table_id, job_config=job_config)
+    job.result() # Tunggu hingga upload selesai
 
     print("Proses ETL selesai!")
