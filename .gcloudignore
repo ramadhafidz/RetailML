@@ -12,6 +12,7 @@ sample_data/
 hasil_data/
 scripts/
 docs/
+.agents/
 
 # File eksekusi lokal & dokumentasi
 column_mapper_lokal.py
