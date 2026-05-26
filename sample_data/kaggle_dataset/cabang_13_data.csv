@@ -1,0 +1,1001 @@
+tbl_product_id,nama_lengkap_produk,harga_jual_per_unit,jumlah_stok_tersedia,kategori_produk
+PRD130001,Le Minerale 600ml,Rp 3.500,73,Minuman
+PRD130002,Garam Refina 250g,3500.00,16,Bumbu
+PRD130003,,2800,98,Makanan
+PRD130004,Aqua Gelas 240ml,Rp 1000,69,Minuman
+PRD130005,Indomie Kuah Soto,2800.00,30.0,Makanan
+PRD130006,Minyak Curah 1L, 16000 ,64,Sembako
+PRD130007,Shampo Clear Sachet,Rp 1500,81,Perawatan Pribadi
+PRD130008,Garam Kapal 250g, 3000 ,,Bumbu
+PRD130009,Minyak Sania 2L,34500,-57,Sembako
+PRD130010,,14500,94,Bumbu
+PRD130011,Pembalut Laurier Relax Night,20000,50,Perawatan Pribadi
+PRD130012,Aqua Botol 600ml,Rp 3500,34,Minuman
+PRD130013,Susu Frisian Flag Sachet,1500,21,Minuman
+PRD130014,Indomie Kuah Ayam Bawang,2800.00,59,Makanan
+PRD130015,Garam Refina 250g,Rp 3500,86,Bumbu
+PRD130016,Kopi Luwak White Koffie,Rp 2.000,66,Minuman
+PRD130017,Popok Sweety Bronze Pants L,Rp 48000,,Perawatan Bayi
+PRD130018,Shampo Sunsilk Sachet,1500.00,72,Perawatan Pribadi
+PRD130019,Tepung Terigu Segitiga Biru 1kg,13000.00,100,Sembako
+PRD130020,Sabun Cuci Piring Mama Lemon 400ml,9500,44,Pembersih
+PRD130021,Bumbu Racik Indofood Nasi Goreng,Rp 2500,6,Bumbu
+PRD130022,Shampo Pantene Sachet,1500,19,Perawatan Pribadi
+PRD130023,Deterjen Attack Jaz1 800g,19000.00,9,Pembersih
+PRD130024,Deterjen Daia 850g,,9,Pembersih
+PRD130025,Tepung Terigu Segitiga Biru 1kg,13000.00,45.0,Sembako
+PRD130026,Pasta Gigi Pepsodent 190g,Rp 12500,5,Perawatan Pribadi
+PRD130027,Susu Bear Brand,10500.00,5.0,Minuman
+PRD130028,Pasta Gigi Ciptadent 190g,Rp 10.000,3.0,Perawatan Pribadi
+,Garam Kapal 250g,Rp 3000,23,Bumbu
+PRD130030,Susu Indomilk Sachet,Rp 1.500,25,Minuman
+PRD130031,Susu Frisian Flag Sachet,Rp 1.500,77,Minuman
+PRD130032,Obat Nyamuk Hit Spray, 35000 ,56,Lainnya
+PRD130033,Aqua Galon, 21000 ,39,Minuman
+PRD130034,Garam Kapal 250g,Rp 3.000,7.0,Bumbu
+PRD130035,Margarin Blue Band 200g,9500.00,8,Sembako
+PRD130036,Susu Frisian Flag Sachet,1500,90.0,Minuman
+PRD130037,Obat Nyamuk Hit Spray,Rp 35000,100,Lainnya
+PRD130038,Shampo Lifebuoy Sachet,Rp 1.000,39,Perawatan Pribadi
+PRD130039,Indomie Kari Ayam,Rp 2800,86,Makanan
+PRD130040,Sabun Cuci Piring Mama Lemon 400ml,9500,55.0,Pembersih
+PRD130041,,4000,73,
+PRD130042,Gula Pasir Gulaku 1kg,16000.00,54,Sembako
+PRD130043,Pembalut Laurier Relax Night,20000.00,98,Perawatan Pribadi
+PRD130044,Gula Curah 1kg,Rp 15000,91,Sembako
+PRD130045,Kopi Nescafe Classic,5000,87,Minuman
+PRD130046,Beras Rojolele 5kg, 67000 ,,Sembako
+PRD130047,Indomie Goreng,Rp 3.000,33,Makanan
+PRD130048,Kecap ABC Pouch 220ml,9500,87,Bumbu
+PRD130049,Tepung Tapioka Rose Brand 500g,8000.00,71,Sembako
+PRD130050,Deterjen Rinso Anti Noda 700g,22000,91,Pembersih
+PRD130051,Kopi Luwak White Koffie,2000,76,Minuman
+PRD130052,Susu Indomilk Sachet,1500,-12,Minuman
+PRD130053,Teh Sariwangi Celup, 6500 ,81,Minuman
+PRD130054,Beras Rojolele 5kg,67000,-91,Sembako
+PRD130055,Garam Refina 250g,3500,49,Bumbu
+PRD130056,Teh Sariwangi Celup,Rp 6500,56,Minuman
+PRD130057,Rokok Djarum Super,22000.00,34,Rokok
+PRD130058,Pembalut Laurier Relax Night,20000.00,20,Perawatan Pribadi
+PRD130059,Minyak Filma 2L,Rp 34.000,45,Sembako
+PRD130060,,5000,17,Minuman
+PRD130061,Kopi Torabika Susu,1500,82,Minuman
+PRD130062,Bumbu Racik Indofood Sayur Asem,2500,17,Bumbu
+PRD130063,Pembersih Lantai Wipol 750ml, 18000 ,,Pembersih
+PRD130064,Minyak Sania 2L,Rp 34500,62,Sembako
+PRD130065,Rokok Surya 16,Rp 31000,55,Rokok
+PRD130066,Gula Curah 1kg, 15000 ,1,
+PRD130067,Pembersih Lantai Wipol 750ml,Rp 18000,21,Pembersih
+PRD130068,Garam Kapal 250g,3000,28,Bumbu
+PRD130069,Beras Ramos 5kg, 65000 ,71,Sembako
+PRD130070,Baterai ABC Sedang (2 pcs),10000,62,Lainnya
+PRD130071,Gula Pasir Gulaku 1kg,Rp 16000,75.0,
+PRD130072,Beras Rojolele 5kg,Rp 67000,48,Sembako
+PRD130073,Bumbu Racik Indofood Sayur Asem,2500,-16,Bumbu
+PRD130074,Sabun Lux Mawar,Rp 4500,42,Perawatan Pribadi
+PRD130075,Tisu Paseo 250s,18500,,Lainnya
+PRD130076,Pembalut Charm Cooling Fresh,Rp 18000,7,Perawatan Pribadi
+PRD130077,Obat Nyamuk Baygon Bakar,,81,Lainnya
+PRD130078,Beras Ramos 5kg,65000,90,Sembako
+PRD130079,Susu Frisian Flag Sachet,1500.00,69,
+PRD130080,, 2000 ,-29,Minuman
+PRD130081,Beras Pandan Wangi 5kg,70000,65.0,Sembako
+PRD130082,Pembalut Laurier Relax Night,Rp 20.000,85,Perawatan Pribadi
+PRD130083,Pembersih Lantai Super Pell 770ml,13500.00,15,Pembersih
+PRD130084,Beras Pandan Wangi 5kg,70000,46,Sembako
+PRD130085,Indomie Kuah Ayam Bawang,Rp 2.800,54,Makanan
+PRD130086,Margarin Forvita 200g, 7000 ,50,Sembako
+PRD130087,Sabun Nuvo Biru,Rp 3500,90,
+PRD130088,Obat Nyamuk Hit Spray,Rp 35000,100,
+,Tepung Beras Rose Brand 500g,Rp 7500,-20,Sembako
+PRD130090,Kopi Kapal Api Sachet,Rp 1.500,51,Minuman
+PRD130091,Gula Pasir Gulaku 1kg,16000.00,8,Sembako
+PRD130092,Pasta Gigi Ciptadent 190g,Rp 10000,-36,Perawatan Pribadi
+PRD130093,Teh Celup Sosro,,28,Minuman
+,,Rp 1500,-14,Perawatan Pribadi
+PRD130095,Kecap Bango Pouch 220ml,11000,99,Bumbu
+PRD130096,Minyak Sania 2L,34500.00,53,Sembako
+PRD130097,,Rp 7.000,7,Sembako
+PRD130098,Le Minerale 600ml,3500,55,
+PRD130099,Pasta Gigi Pepsodent 190g,12500,6,Perawatan Pribadi
+PRD130100,Tepung Beras Rose Brand 500g,Rp 7500,59,Sembako
+PRD130101,Deterjen Rinso Anti Noda 700g,22000.00,42,Pembersih
+PRD130102,Popok Sweety Bronze Pants L,Rp 48000,11,Perawatan Bayi
+PRD130103,Susu Frisian Flag Sachet,1500,0,Minuman
+PRD130104,Kopi Luwak White Koffie,2000.00,63,Minuman
+PRD130105,Rokok Surya 16,31000.00,37,Rokok
+PRD130106,Pembalut Charm Cooling Fresh,18000,89,Perawatan Pribadi
+PRD130107,Tepung Terigu Segitiga Biru 1kg,13000.00,-29,Sembako
+PRD130108,Sabun Lux Mawar,4500,38.0,Perawatan Pribadi
+PRD130109,Minyak Bimoli 2L, 35000 ,-50,Sembako
+PRD130110,Susu Bear Brand,10500.00,62,Minuman
+PRD130111,,Rp 1.500,6,Minuman
+PRD130112,Minyak Bimoli 2L, 35000 ,44.0,Sembako
+PRD130113,Pasta Gigi Pepsodent 190g,12500.00,100,Perawatan Pribadi
+PRD130114,,3500.00,85,Minuman
+PRD130115,Susu Bear Brand,Rp 10500,19,Minuman
+PRD130116,Bumbu Racik Indofood Sayur Asem,Rp 2.500,23,Bumbu
+PRD130117,Minyak Curah 1L,Rp 16.000,95,Sembako
+PRD130118,Indomie Goreng, 3000 ,9.0,Makanan
+,Minyak Curah 1L,16000.00,45,Sembako
+PRD130120,Minyak Sania 2L,,-39,Sembako
+PRD130121,Sabun Cuci Piring Sunlight 460ml,11000,36,Pembersih
+PRD130122,Sikat Gigi Formula, 6000 ,14,Perawatan Pribadi
+PRD130123,Minyak Sania 2L, 34500 ,,Sembako
+PRD130124,Fanta Merah 390ml,5000,16,Minuman
+PRD130125,Tepung Beras Rose Brand 500g,Rp 7.500,99,Sembako
+PRD130126,Obat Nyamuk Baygon Bakar,Rp 6.000,33,Lainnya
+PRD130127,Margarin Forvita 200g,Rp 7000,16,Sembako
+PRD130128,Pembersih Lantai Super Pell 770ml,13500.00,76,Pembersih
+PRD130129,,,63,Bumbu
+PRD130130,,22000,65,Rokok
+PRD130131,Minyak Curah 1L,,-50,Sembako
+,Sabun Nuvo Biru,3500.00,64,Perawatan Pribadi
+PRD130133,Minyak Sania 2L,34500.00,99,Sembako
+PRD130134,Bumbu Racik Indofood Nasi Goreng,Rp 2.500,69.0,Bumbu
+PRD130135,Obat Nyamuk Baygon Bakar,Rp 6000,9,Lainnya
+PRD130136,Kapur Barus Bagus,15000.00,95,Lainnya
+PRD130137,Minyak Sania 2L,34500,68,Sembako
+PRD130138,Rokok Marlboro Merah,Rp 38000,74,Rokok
+PRD130139,Shampo Pantene Sachet,Rp 1.500,98,Perawatan Pribadi
+PRD130140,Rokok Gudang Garam Filter,Rp 23.000,9,Rokok
+PRD130141,Mie Sedap Goreng,2900,17,Makanan
+PRD130142,Mie Sedap Goreng,2900,73,Makanan
+PRD130143,Minyak Filma 2L,34000,24,Sembako
+PRD130144,Margarin Blue Band 200g,9500,64,Sembako
+PRD130145,Pembalut Charm Cooling Fresh,18000.00,93,Perawatan Pribadi
+PRD130146,Kopi ABC Susu,1500,49,Minuman
+PRD130147,Margarin Blue Band 200g,Rp 9500,8,Sembako
+PRD130148,Rokok Surya 16,31000,23,Rokok
+PRD130149,Aqua Gelas 240ml,1000,31.0,
+PRD130150,Sabun Nuvo Biru, 3500 ,36,Perawatan Pribadi
+PRD130151,Kopi Nescafe Classic,5000.00,54,Minuman
+PRD130152,Tepung Beras Rose Brand 500g,Rp 7500,49,Sembako
+PRD130153,Teh Sariwangi Celup,Rp 6500,-24,
+PRD130154,Garam Refina 250g,Rp 3500,41,Bumbu
+PRD130155,Teh Sariwangi Celup,6500,75,Minuman
+PRD130156,Kopi Torabika Susu,Rp 1500,-67,Minuman
+PRD130157,,34000.00,89,Sembako
+PRD130158,Beras Pandan Wangi 5kg,70000,17,Sembako
+PRD130159,Aqua Galon,21000,48,Minuman
+PRD130160,Tepung Terigu Segitiga Biru 1kg, 13000 ,20,Sembako
+PRD130161,Rokok Surya 16,Rp 31.000,,Rokok
+PRD130162,Beras Pandan Wangi 5kg,Rp 70.000,-31,Sembako
+PRD130163,Minyak Curah 1L,16000,97,Sembako
+PRD130164,Pasta Gigi Pepsodent 190g,12500,1,Perawatan Pribadi
+PRD130165,Kopi Torabika Susu,1500.00,-90,Minuman
+PRD130166,Indomie Kuah Soto, 2800 ,96,Makanan
+PRD130167,Sabun Lux Mawar,Rp 4500,47.0,Perawatan Pribadi
+PRD130168,Kopi ABC Susu, 1500 ,87,Minuman
+PRD130169,Susu Frisian Flag Sachet,Rp 1500,93,Minuman
+PRD130170,Beras Pandan Wangi 5kg,70000,76,Sembako
+PRD130171,Mie Sedap Goreng,2900.00,68,Makanan
+PRD130172,Korek Api Gas Tokai,Rp 3000,45,Lainnya
+PRD130173,Minyak Filma 2L,Rp 34.000,88.0,Sembako
+,Rokok Surya 16,Rp 31000,4,Rokok
+PRD130175,Susu Frisian Flag Sachet,Rp 1.500,59,Minuman
+PRD130176,Pembersih Lantai Super Pell 770ml,Rp 13500,33,Pembersih
+,Kopi Luwak White Koffie, 2000 ,51,Minuman
+PRD130178,Rokok Djarum Super,Rp 22000,68,Rokok
+PRD130179,Coca Cola Botol 390ml,Rp 5000,31,Minuman
+PRD130180,Deterjen Attack Jaz1 800g,Rp 19.000,6,Pembersih
+PRD130181,Mie Sedap Goreng,2900.00,11,Makanan
+PRD130182,Indomie Kari Ayam,2800,49,Makanan
+PRD130183,Rokok Gudang Garam Filter,Rp 23.000,17,Rokok
+PRD130184,Rokok Marlboro Merah,Rp 38000,-54,Rokok
+PRD130185,Sabun Lifebuoy Merah,Rp 4000,27,Perawatan Pribadi
+PRD130186,Le Minerale 600ml,3500,79,Minuman
+PRD130187,Gula Curah 1kg,Rp 15.000,78,Sembako
+PRD130188,Le Minerale 600ml,3500,-13,Minuman
+,Beras Ramos 5kg,65000,62,Sembako
+PRD130190,Margarin Forvita 200g,7000.00,86,Sembako
+PRD130191,Rokok Marlboro Merah,38000.00,98,Rokok
+PRD130192,Susu Indomilk Sachet,Rp 1.500,48,Minuman
+PRD130193,Susu Bear Brand,10500,98,Minuman
+PRD130194,Teh Celup Sosro,Rp 7.000,34,Minuman
+PRD130195,Minyak Filma 2L,Rp 34000,49.0,Sembako
+PRD130196,Tisu Tessa 250s,Rp 17.000,81,Lainnya
+PRD130197,Popok MamyPoko Pants M,55000,13,Perawatan Bayi
+PRD130198,Beras Rojolele 5kg,,61,Sembako
+PRD130199,Tisu Tessa 250s,Rp 17.000,2,Lainnya
+PRD130200,Kopi ABC Susu,Rp 1500,85,Minuman
+PRD130201,Coca Cola Botol 390ml,5000.00,13,Minuman
+PRD130202,Teh Celup Sosro,7000.00,79,Minuman
+PRD130203,Rokok Djarum Super,22000.00,,Rokok
+PRD130204,Indomie Kari Ayam,2800.00,96,Makanan
+PRD130205,Kopi Nescafe Classic,Rp 5000,90,Minuman
+PRD130206,Aqua Galon,Rp 21.000,69,
+PRD130207,Kopi Nescafe Classic,Rp 5.000,41,Minuman
+PRD130208,Saus Sambal ABC 340ml,Rp 15000,99,Bumbu
+PRD130209,Rokok Marlboro Merah,,60,Rokok
+PRD130210,Deterjen Attack Jaz1 800g,Rp 19000,93,Pembersih
+PRD130211,Indomie Kuah Soto,Rp 2800,79,Makanan
+PRD130212,Rokok Surya 16,Rp 31000,26,Rokok
+PRD130213,Aqua Galon,21000,64,Minuman
+PRD130214,Susu Bear Brand, 10500 ,,Minuman
+PRD130215,Aqua Galon,21000.00,32.0,Minuman
+PRD130216,Coca Cola Botol 390ml, 5000 ,43,Minuman
+PRD130217,Shampo Clear Sachet,1500,82.0,Perawatan Pribadi
+PRD130218,Mie Sedap Goreng,,33,Makanan
+,Teh Pucuk Harum 350ml,4000,53,Minuman
+PRD130220,Tepung Terigu Segitiga Biru 1kg,13000,30,Sembako
+PRD130221,Teh Pucuk Harum 350ml,4000,56,Minuman
+PRD130222,, 6500 ,83,Minuman
+PRD130223,Beras Rojolele 5kg,Rp 67000,7,Sembako
+PRD130224,Korek Api Gas Tokai,Rp 3000,97,
+,Pembersih Lantai Super Pell 770ml,13500.00,72,Pembersih
+PRD130226,Kecap Bango Pouch 220ml,11000,81,Bumbu
+PRD130227,Sabun Cuci Piring Mama Lemon 400ml,9500,41,Pembersih
+PRD130228,Pembersih Lantai Wipol 750ml, 18000 ,95,Pembersih
+PRD130229,Mie Sedap Goreng,2900.00,21.0,Makanan
+PRD130230,Indomie Kuah Soto,2800.00,32,Makanan
+PRD130231,Tepung Beras Rose Brand 500g,7500.00,-18,Sembako
+PRD130232,Teh Pucuk Harum 350ml,4000.00,,Minuman
+PRD130233,Popok Sweety Bronze Pants L,48000,2,Perawatan Bayi
+PRD130234,Sabun Cuci Piring Mama Lemon 400ml,9500.00,,Pembersih
+PRD130235,Teh Pucuk Harum 350ml,,22,Minuman
+PRD130236,,5000.00,84,Minuman
+PRD130237,Bumbu Racik Indofood Sayur Asem,2500,72,Bumbu
+PRD130238,Minyak Bimoli 2L,Rp 35.000,20,Sembako
+PRD130239,, 17000 ,15,Lainnya
+PRD130240,Pasta Gigi Ciptadent 190g,10000.00,66,Perawatan Pribadi
+PRD130241,Susu Dancow Sachet,Rp 3.500,26,Minuman
+PRD130242,Bumbu Racik Indofood Sayur Asem,2500,97,Bumbu
+PRD130243,Garam Refina 250g, 3500 ,88,Bumbu
+PRD130244,Minyak Curah 1L,Rp 16000,56,Sembako
+PRD130245,Kopi ABC Susu,Rp 1.500,15,Minuman
+PRD130246,Le Minerale 600ml,Rp 3500,15,Minuman
+PRD130247,Aqua Botol 600ml,Rp 3500,61,Minuman
+PRD130248,Kopi Nescafe Classic,5000,43,Minuman
+PRD130249,Shampo Pantene Sachet, 1500 ,81,Perawatan Pribadi
+PRD130250,Pembersih Lantai Wipol 750ml,18000,57,Pembersih
+PRD130251,Minyak Sania 2L,Rp 34.500,42,Sembako
+PRD130252,, 17000 ,27,Lainnya
+PRD130253,Margarin Forvita 200g,Rp 7.000,,Sembako
+PRD130254,Margarin Blue Band 200g,Rp 9500,22,
+PRD130255,Pasta Gigi Ciptadent 190g,Rp 10000,80,Perawatan Pribadi
+PRD130256,Beras Rojolele 5kg,67000,13,Sembako
+PRD130257,Pembersih Lantai Wipol 750ml,Rp 18000,63,Pembersih
+PRD130258,Tepung Tapioka Rose Brand 500g,Rp 8.000,45,Sembako
+PRD130259,Margarin Blue Band 200g,Rp 9500,60.0,Sembako
+PRD130260,Susu Frisian Flag Sachet,,66,Minuman
+PRD130261,Kopi ABC Susu,1500.00,51,Minuman
+PRD130262,Garam Kapal 250g,Rp 3000,62,Bumbu
+PRD130263,Kecap Bango Pouch 220ml,11000,95,Bumbu
+PRD130264,Obat Nyamuk Hit Spray,Rp 35.000,3.0,Lainnya
+PRD130265,Sikat Gigi Formula,6000.00,19.0,Perawatan Pribadi
+PRD130266,Sabun Mandi Dettol,Rp 5.000,5.0,Perawatan Pribadi
+PRD130267,Pembersih Lantai Wipol 750ml,18000,43,Pembersih
+PRD130268,Kecap ABC Pouch 220ml,Rp 9.500,62,Bumbu
+PRD130269,Minyak Filma 2L,34000,95,
+PRD130270,Pembalut Laurier Relax Night,20000.00,65,Perawatan Pribadi
+PRD130271,Sikat Gigi Formula,Rp 6.000,70,Perawatan Pribadi
+PRD130272,Le Minerale 600ml,3500.00,89.0,Minuman
+PRD130273,Rokok Sampoerna Mild,30000.00,-74,Rokok
+PRD130274,Aqua Botol 600ml,3500,54,Minuman
+PRD130275,Minyak Bimoli 2L,35000.00,64,Sembako
+PRD130276,Korek Api Gas Tokai, 3000 ,30,Lainnya
+PRD130277,Aqua Galon,Rp 21000,65,Minuman
+PRD130278,Minyak Filma 2L,Rp 34.000,13,Sembako
+PRD130279,Popok MamyPoko Pants M,55000,18,Perawatan Bayi
+PRD130280,Susu Indomilk Sachet,1500.00,77,Minuman
+PRD130281,Sikat Gigi Formula,6000,19.0,Perawatan Pribadi
+PRD130282,Coca Cola Botol 390ml,Rp 5000,52,Minuman
+PRD130283,Saus Sambal Indofood 340ml,,95,Bumbu
+PRD130284,Rokok Djarum Super,22000.00,58,Rokok
+PRD130285,Fanta Merah 390ml,Rp 5000,73,Minuman
+PRD130286,Aqua Botol 600ml,Rp 3500,65,Minuman
+PRD130287,Teh Celup Sosro,Rp 7000,58,
+PRD130288,,Rp 11000,62,Pembersih
+PRD130289,Popok MamyPoko Pants M,55000,94,Perawatan Bayi
+PRD130290,Rokok Surya 16,31000,1,Rokok
+PRD130291,Korek Api Gas Tokai,,0.0,Lainnya
+PRD130292,Beras Rojolele 5kg,Rp 67.000,-35,Sembako
+,Kopi Torabika Susu,1500,49.0,
+PRD130294,Pembersih Lantai Super Pell 770ml,13500.00,32.0,Pembersih
+PRD130295,Pasta Gigi Pepsodent 190g,Rp 12500,89,Perawatan Pribadi
+PRD130296,Popok Sweety Bronze Pants L,Rp 48.000,86,Perawatan Bayi
+PRD130297,Deterjen Attack Jaz1 800g,19000.00,,Pembersih
+PRD130298,Rokok Marlboro Merah,Rp 38.000,16,Rokok
+PRD130299,Minyak Bimoli 2L,Rp 35.000,4,Sembako
+PRD130300,Indomie Goreng,Rp 3000,87,Makanan
+PRD130301,Minyak Filma 2L, 34000 ,-60,Sembako
+,Minyak Bimoli 2L,Rp 35.000,79,
+PRD130303,Garam Refina 250g,3500.00,22,Bumbu
+PRD130304,Susu Frisian Flag Sachet,1500,31.0,Minuman
+PRD130305,Kopi Luwak White Koffie,2000.00,25,Minuman
+PRD130306,Baterai ABC Sedang (2 pcs),Rp 10.000,18,Lainnya
+PRD130307,Shampo Lifebuoy Sachet,Rp 1000,72,Perawatan Pribadi
+PRD130308,Shampo Clear Sachet,1500.00,55,Perawatan Pribadi
+PRD130309,Minyak Curah 1L,16000,83,Sembako
+PRD130310,Bumbu Racik Indofood Nasi Goreng,2500,66,Bumbu
+PRD130311,Rokok Gudang Garam Filter,23000.00,80,Rokok
+PRD130312,Indomie Kari Ayam,2800,32,Makanan
+PRD130313,Rokok Marlboro Merah,Rp 38.000,90,Rokok
+PRD130314,Teh Celup Sosro,7000.00,36,Minuman
+PRD130315,Rokok Surya 16,31000.00,30,Rokok
+PRD130316,Saus Sambal Indofood 340ml,14500.00,58.0,
+PRD130317,Indomie Kari Ayam,2800,49,Makanan
+PRD130318,,18000,99,Perawatan Pribadi
+PRD130319,Pasta Gigi Ciptadent 190g,10000.00,,Perawatan Pribadi
+PRD130320,Bumbu Racik Indofood Sayur Asem,Rp 2500,10,Bumbu
+PRD130321,Sabun Cuci Piring Mama Lemon 400ml,9500,91,Pembersih
+PRD130322,Rokok Sampoerna Mild,30000.00,,Rokok
+PRD130323,Rokok Gudang Garam Filter,23000.00,54,Rokok
+PRD130324,Tisu Tessa 250s,17000,11,Lainnya
+PRD130325,Coca Cola Botol 390ml, 5000 ,31.0,Minuman
+PRD130326,Teh Sariwangi Celup,6500.00,84,Minuman
+PRD130327,Kopi Nescafe Classic,Rp 5.000,,Minuman
+PRD130328,Bumbu Racik Indofood Sayur Asem,2500.00,56,Bumbu
+PRD130329,Tepung Tapioka Rose Brand 500g,Rp 8000,64,Sembako
+PRD130330,Saus Sambal ABC 340ml,Rp 15000,81,Bumbu
+PRD130331,Fanta Merah 390ml,5000.00,-83,Minuman
+PRD130332,Deterjen Daia 850g,Rp 18.500,100,Pembersih
+PRD130333,Rokok Sampoerna Mild,Rp 30.000,96,Rokok
+PRD130334,Baterai ABC Sedang (2 pcs),,12,Lainnya
+PRD130335,Susu Bear Brand,Rp 10500,89,Minuman
+PRD130336,,10000,61,Lainnya
+PRD130337,Pembalut Laurier Relax Night, 20000 ,89,Perawatan Pribadi
+PRD130338,Le Minerale 600ml, 3500 ,,Minuman
+,Tepung Tapioka Rose Brand 500g,8000,67,Sembako
+PRD130340,Korek Api Gas Tokai,3000.00,41.0,Lainnya
+,Korek Api Gas Tokai,3000.00,53,Lainnya
+PRD130342,Teh Sariwangi Celup,Rp 6500,6,Minuman
+PRD130343,Sprite Botol 390ml, 5000 ,38,
+PRD130344,Minyak Bimoli 2L,35000,23,Sembako
+PRD130345,Minyak Sania 2L,Rp 34500,64,Sembako
+PRD130346,Susu Dancow Sachet,Rp 3500,84,Minuman
+PRD130347,Le Minerale 600ml,Rp 3.500,2.0,
+PRD130348,Susu Frisian Flag Sachet,1500,49,Minuman
+PRD130349,Le Minerale 600ml,3500,64,Minuman
+PRD130350,Tisu Tessa 250s,17000.00,43,Lainnya
+PRD130351,Sabun Nuvo Biru,3500,92,Perawatan Pribadi
+PRD130352,Gula Pasir Gulaku 1kg,16000,50,Sembako
+PRD130353,,,83,Minuman
+PRD130354,Pasta Gigi Pepsodent 190g,12500.00,21,Perawatan Pribadi
+PRD130355,Kopi ABC Susu,Rp 1500,64,Minuman
+PRD130356,Gula Pasir Gulaku 1kg,Rp 16.000,,
+PRD130357,Deterjen Rinso Anti Noda 700g,,58,Pembersih
+PRD130358,Shampo Clear Sachet, 1500 ,50,
+PRD130359,Pasta Gigi Pepsodent 190g,Rp 12500,50,Perawatan Pribadi
+PRD130360,Gula Pasir Gulaku 1kg,16000,63.0,Sembako
+PRD130361,Pembalut Charm Cooling Fresh,18000,71,Perawatan Pribadi
+PRD130362,Minyak Bimoli 2L,35000,68,Sembako
+PRD130363,Korek Api Gas Tokai,3000,94,Lainnya
+PRD130364,Deterjen Daia 850g,18500,80,
+PRD130365,Korek Api Gas Tokai,3000,74,Lainnya
+PRD130366,,Rp 35.000,22,Lainnya
+PRD130367,Kopi Nescafe Classic,5000.00,17,Minuman
+PRD130368,Kopi Torabika Susu,Rp 1.500,84,Minuman
+PRD130369,Pembersih Lantai Super Pell 770ml,Rp 13500,24,Pembersih
+PRD130370,Teh Pucuk Harum 350ml,Rp 4000,26,Minuman
+PRD130371,Aqua Gelas 240ml,1000.00,42,Minuman
+PRD130372,Rokok Marlboro Merah,38000.00,82,Rokok
+PRD130373,Shampo Sunsilk Sachet, 1500 ,-67,Perawatan Pribadi
+PRD130374,Obat Nyamuk Hit Spray,35000.00,30,Lainnya
+PRD130375,Kopi Kapal Api Sachet,1500,93,Minuman
+PRD130376,Kecap Bango Pouch 220ml,11000.00,-4,Bumbu
+PRD130377,,1000.00,41,Minuman
+PRD130378,Pembalut Laurier Relax Night, 20000 ,11,Perawatan Pribadi
+PRD130379,Bumbu Racik Indofood Sayur Asem,2500,89,Bumbu
+PRD130380,Sabun Mandi Dettol,5000,29,Perawatan Pribadi
+PRD130381,Kopi Torabika Susu, 1500 ,85,Minuman
+PRD130382,,Rp 14.500,,Bumbu
+PRD130383,Aqua Galon,Rp 21.000,,Minuman
+PRD130384,Mie Sedap Goreng,2900.00,92,Makanan
+PRD130385,Aqua Botol 600ml,Rp 3.500,69,Minuman
+PRD130386,Susu Frisian Flag Sachet,Rp 1.500,-83,Minuman
+PRD130387,Indomie Kuah Ayam Bawang,Rp 2.800,59,Makanan
+PRD130388,Baterai Alkalin AA (2 pcs), 15000 ,96,Lainnya
+PRD130389,Indomie Goreng,Rp 3000,78,Makanan
+PRD130390,Saus Sambal Indofood 340ml,Rp 14.500,49,Bumbu
+PRD130391,Deterjen Attack Jaz1 800g,19000.00,,Pembersih
+PRD130392,Sabun Cuci Piring Mama Lemon 400ml,9500,9,Pembersih
+PRD130393,Sikat Gigi Formula,Rp 6000,70,Perawatan Pribadi
+PRD130394,Obat Nyamuk Hit Spray,Rp 35.000,85,Lainnya
+,Fanta Merah 390ml,5000,10,Minuman
+PRD130396,Aqua Botol 600ml,Rp 3.500,54,Minuman
+PRD130397,Baterai Alkalin AA (2 pcs),Rp 15.000,61,
+PRD130398,Sabun Lifebuoy Merah,Rp 4000,61,Perawatan Pribadi
+PRD130399,Popok Sweety Bronze Pants L,Rp 48000,92,Perawatan Bayi
+PRD130400,Teh Pucuk Harum 350ml,Rp 4000,29,Minuman
+PRD130401,Pasta Gigi Ciptadent 190g,Rp 10.000,76,
+PRD130402,Shampo Sunsilk Sachet,Rp 1.500,58,
+PRD130403,Rokok Sampoerna Mild, 30000 ,49.0,Rokok
+PRD130404,Bumbu Racik Indofood Nasi Goreng, 2500 ,30,Bumbu
+PRD130405,Pembalut Charm Cooling Fresh,Rp 18.000,5,Perawatan Pribadi
+PRD130406,Teh Celup Sosro,Rp 7000,78,Minuman
+PRD130407,Le Minerale 600ml,Rp 3500,85,Minuman
+PRD130408,Indomie Kuah Ayam Bawang,Rp 2.800,27,Makanan
+PRD130409,Minyak Bimoli 2L,35000.00,17,Sembako
+,Aqua Botol 600ml,3500,89,
+PRD130411,Indomie Kuah Soto,2800,17,Makanan
+PRD130412,Bumbu Racik Indofood Nasi Goreng,Rp 2.500,-35,Bumbu
+PRD130413,Garam Refina 250g,3500.00,81,Bumbu
+PRD130414,,70000,32.0,Sembako
+PRD130415,Aqua Botol 600ml,Rp 3.500,67.0,Minuman
+PRD130416,Tisu Tessa 250s,17000,98,Lainnya
+PRD130417,Shampo Pantene Sachet,Rp 1.500,85,Perawatan Pribadi
+PRD130418,Sprite Botol 390ml,5000,46,Minuman
+PRD130419,Sabun Cuci Piring Sunlight 460ml,11000.00,99,Pembersih
+PRD130420,Teh Sariwangi Celup,Rp 6.500,89,Minuman
+PRD130421,Tisu Tessa 250s, 17000 ,47.0,Lainnya
+PRD130422,Gula Pasir Gulaku 1kg, 16000 ,41,Sembako
+PRD130423,,30000.00,41,Rokok
+PRD130424,Beras Pandan Wangi 5kg,70000,37,Sembako
+PRD130425,Beras Ramos 5kg,65000,6,Sembako
+PRD130426,Minyak Curah 1L,Rp 16.000,85,Sembako
+PRD130427,Kecap Bango Pouch 220ml,Rp 11.000,,Bumbu
+PRD130428,Obat Nyamuk Hit Spray,Rp 35.000,-15,Lainnya
+PRD130429,Popok MamyPoko Pants M,55000,44,Perawatan Bayi
+PRD130430,Shampo Pantene Sachet,Rp 1500,,Perawatan Pribadi
+PRD130431,Popok MamyPoko Pants M, 55000 ,87.0,Perawatan Bayi
+PRD130432,Susu Indomilk Sachet,1500.00,36,Minuman
+PRD130433,Beras Rojolele 5kg,67000.00,-50,Sembako
+,Kopi Kapal Api Sachet,1500.00,88,Minuman
+PRD130435,Sabun Mandi Dettol,5000,23,Perawatan Pribadi
+PRD130436,Kopi Nescafe Classic,5000.00,-15,Minuman
+PRD130437,Bumbu Racik Indofood Sayur Asem,Rp 2500,,Bumbu
+PRD130438,Baterai Alkalin AA (2 pcs),15000,70,Lainnya
+PRD130439,Minyak Filma 2L,Rp 34000,28,Sembako
+PRD130440,Tisu Tessa 250s,17000,59,Lainnya
+PRD130441,Minyak Sania 2L,34500.00,54,Sembako
+PRD130442,Bumbu Racik Indofood Sayur Asem,2500,18,Bumbu
+PRD130443,,5000,99.0,
+PRD130444,Teh Sariwangi Celup, 6500 ,,Minuman
+PRD130445,Sabun Cuci Piring Sunlight 460ml,11000,14,Pembersih
+PRD130446,Coca Cola Botol 390ml,Rp 5000,49,Minuman
+PRD130447,Pembalut Charm Cooling Fresh,Rp 18.000,12,Perawatan Pribadi
+PRD130448,Mie Sedap Goreng,2900.00,55,Makanan
+PRD130449,Teh Celup Sosro,7000.00,88,Minuman
+PRD130450,,13500,55,Pembersih
+PRD130451,Deterjen Attack Jaz1 800g,Rp 19.000,27,Pembersih
+PRD130452,Indomie Kuah Ayam Bawang,Rp 2.800,35,Makanan
+PRD130453,Aqua Galon,21000,84,Minuman
+PRD130454,Susu Dancow Sachet,3500.00,42,Minuman
+PRD130455,Rokok Djarum Super,22000,-49,Rokok
+PRD130456,Pembersih Lantai Wipol 750ml,18000.00,16,Pembersih
+PRD130457,Susu Frisian Flag Sachet,Rp 1.500,12,Minuman
+PRD130458,Shampo Clear Sachet,1500,51,Perawatan Pribadi
+PRD130459,Beras Ramos 5kg,Rp 65.000,69,Sembako
+PRD130460,Pembersih Lantai Wipol 750ml,18000.00,2.0,Pembersih
+PRD130461,Shampo Pantene Sachet,1500.00,24,Perawatan Pribadi
+PRD130462,Aqua Botol 600ml,Rp 3500,-6,Minuman
+PRD130463,Kapur Barus Bagus,15000,53,Lainnya
+PRD130464,Pembersih Lantai Wipol 750ml,18000,93,Pembersih
+PRD130465,Deterjen Rinso Anti Noda 700g,,82.0,Pembersih
+PRD130466,Saus Sambal ABC 340ml,15000,17,Bumbu
+PRD130467,Bumbu Racik Indofood Sayur Asem,2500.00,83,Bumbu
+PRD130468,Kecap ABC Pouch 220ml,9500.00,27,Bumbu
+PRD130469,Teh Celup Sosro,,-19,Minuman
+PRD130470,Sabun Nuvo Biru, 3500 ,-51,
+PRD130471,Minyak Curah 1L,Rp 16000,37.0,Sembako
+PRD130472,Indomie Kuah Soto,Rp 2800,29,Makanan
+PRD130473,Sikat Gigi Formula,Rp 6.000,21,Perawatan Pribadi
+PRD130474,Pasta Gigi Ciptadent 190g,10000.00,-18,Perawatan Pribadi
+PRD130475,Deterjen Attack Jaz1 800g,19000.00,16,Pembersih
+PRD130476,Aqua Botol 600ml,3500,-70,Minuman
+PRD130477,Garam Refina 250g,Rp 3.500,22,
+,Susu Bear Brand,Rp 10.500,7,Minuman
+PRD130479,Minyak Sania 2L,34500,84,Sembako
+PRD130480,Popok MamyPoko Pants M,55000.00,96,Perawatan Bayi
+,Pasta Gigi Ciptadent 190g,10000,35,Perawatan Pribadi
+PRD130482,Minyak Sania 2L,34500,100.0,Sembako
+PRD130483,Shampo Lifebuoy Sachet,Rp 1.000,-90,
+PRD130484,Tepung Tapioka Rose Brand 500g,8000,35.0,Sembako
+PRD130485,Deterjen Rinso Anti Noda 700g,Rp 22.000,39,Pembersih
+,Rokok Djarum Super,Rp 22000,,Rokok
+PRD130487,Korek Api Gas Tokai,Rp 3000,72,Lainnya
+PRD130488,Kecap Bango Pouch 220ml,Rp 11000,32,Bumbu
+PRD130489,Sabun Cuci Piring Sunlight 460ml, 11000 ,35,Pembersih
+PRD130490,Shampo Lifebuoy Sachet,1000.00,35.0,Perawatan Pribadi
+PRD130491,Sabun Cuci Piring Mama Lemon 400ml,9500.00,76,Pembersih
+PRD130492,Shampo Clear Sachet,1500,58,Perawatan Pribadi
+PRD130493,Sabun Lifebuoy Merah,Rp 4000,83,Perawatan Pribadi
+PRD130494,Beras Pandan Wangi 5kg,Rp 70.000,67,Sembako
+PRD130495,Indomie Goreng,3000.00,29,Makanan
+PRD130496,Popok MamyPoko Pants M,55000,75,Perawatan Bayi
+PRD130497,Fanta Merah 390ml,5000.00,1,Minuman
+PRD130498,Korek Api Gas Tokai,Rp 3.000,62,Lainnya
+PRD130499,Susu Indomilk Sachet,1500,67,Minuman
+PRD130500,Sabun Lux Mawar,Rp 4500,9,Perawatan Pribadi
+PRD130501,Sabun Cuci Piring Mama Lemon 400ml,9500.00,95,Pembersih
+PRD130502,Rokok Gudang Garam Filter,23000,69.0,Rokok
+PRD130503,Shampo Pantene Sachet,1500,,Perawatan Pribadi
+PRD130504,Tepung Tapioka Rose Brand 500g,Rp 8000,86,Sembako
+PRD130505,Kopi Kapal Api Sachet,1500.00,31,Minuman
+PRD130506,Gula Curah 1kg,15000,48.0,Sembako
+PRD130507,Minyak Curah 1L,Rp 16.000,60,Sembako
+PRD130508,,19000,19.0,Pembersih
+PRD130509,Margarin Forvita 200g,7000,70,Sembako
+PRD130510,Mie Sedap Goreng,Rp 2900,6,Makanan
+PRD130511,Beras Rojolele 5kg,Rp 67000,75,Sembako
+PRD130512,Kopi Nescafe Classic,Rp 5.000,10,Minuman
+PRD130513,Tepung Beras Rose Brand 500g,7500.00,-18,Sembako
+PRD130514,Beras Ramos 5kg,,25,Sembako
+PRD130515,Sabun Cuci Piring Sunlight 460ml,11000,46,Pembersih
+PRD130516,Fanta Merah 390ml,Rp 5.000,51,Minuman
+PRD130517,Teh Pucuk Harum 350ml,Rp 4.000,12,Minuman
+PRD130518,Sabun Mandi Dettol,Rp 5000,79,
+PRD130519,Indomie Goreng,3000.00,44.0,
+,Pembersih Lantai Super Pell 770ml,Rp 13.500,26,Pembersih
+PRD130521,Aqua Botol 600ml,Rp 3.500,53,Minuman
+PRD130522,Obat Nyamuk Hit Spray,35000,35,Lainnya
+PRD130523,Obat Nyamuk Baygon Bakar,Rp 6000,0.0,Lainnya
+PRD130524,Beras Rojolele 5kg,Rp 67.000,-79,Sembako
+PRD130525,Tepung Tapioka Rose Brand 500g,8000,14,Sembako
+PRD130526,Pembersih Lantai Wipol 750ml,18000.00,70,
+PRD130527,Garam Kapal 250g,Rp 3.000,63,Bumbu
+PRD130528,Popok Sweety Bronze Pants L,48000.00,44,Perawatan Bayi
+PRD130529,Baterai ABC Sedang (2 pcs),10000.00,30.0,Lainnya
+PRD130530,Tisu Tessa 250s,17000,,Lainnya
+PRD130531,Kecap ABC Pouch 220ml,Rp 9.500,54,Bumbu
+PRD130532,Baterai ABC Sedang (2 pcs),Rp 10000,94,Lainnya
+PRD130533,Tepung Terigu Segitiga Biru 1kg,13000,26,Sembako
+PRD130534,Kopi Torabika Susu,1500,,Minuman
+PRD130535,Aqua Galon,Rp 21000,63,Minuman
+PRD130536,Sabun Cuci Piring Sunlight 460ml,11000.00,83,Pembersih
+PRD130537,Susu Bear Brand,10500,81,Minuman
+PRD130538,Shampo Lifebuoy Sachet,Rp 1000,64,Perawatan Pribadi
+PRD130539,Tepung Beras Rose Brand 500g,Rp 7.500,77,Sembako
+PRD130540,Tisu Paseo 250s,,7.0,Lainnya
+PRD130541,Aqua Botol 600ml,3500,-62,Minuman
+PRD130542,Beras Rojolele 5kg,67000,86,Sembako
+PRD130543,Susu Bear Brand,,94,Minuman
+PRD130544,Susu Frisian Flag Sachet,Rp 1500,44,Minuman
+PRD130545,Mie Sedap Goreng,,87,Makanan
+PRD130546,Le Minerale 600ml,Rp 3.500,38,Minuman
+PRD130547,Garam Kapal 250g,Rp 3000,-11,Bumbu
+PRD130548,Bumbu Racik Indofood Sayur Asem,2500,64,Bumbu
+PRD130549,Kecap ABC Pouch 220ml,9500,88,Bumbu
+PRD130550,Susu Bear Brand, 10500 ,91,Minuman
+PRD130551,,6000.00,96,Perawatan Pribadi
+PRD130552,,Rp 3500,64,Minuman
+PRD130553,Pasta Gigi Ciptadent 190g, 10000 ,49.0,Perawatan Pribadi
+PRD130554,Pembalut Charm Cooling Fresh,18000,70,Perawatan Pribadi
+PRD130555,Tisu Tessa 250s,17000.00,,Lainnya
+PRD130556,Kopi ABC Susu, 1500 ,8,Minuman
+PRD130557,Tepung Beras Rose Brand 500g,Rp 7.500,92,Sembako
+PRD130558,Beras Ramos 5kg,,49,Sembako
+PRD130559,Rokok Surya 16,31000.00,77,Rokok
+PRD130560,Tepung Beras Rose Brand 500g,7500.00,74,Sembako
+PRD130561,Pasta Gigi Ciptadent 190g,10000,2,
+PRD130562,Popok MamyPoko Pants M,Rp 55000,73,Perawatan Bayi
+PRD130563,Susu Frisian Flag Sachet,Rp 1500,19,Minuman
+PRD130564,, 2800 ,67,Makanan
+,Minyak Filma 2L,Rp 34.000,58,Sembako
+PRD130566,Baterai ABC Sedang (2 pcs),10000,87,Lainnya
+,Kecap Bango Pouch 220ml,11000,64,Bumbu
+PRD130568,Tepung Terigu Segitiga Biru 1kg,13000,35,Sembako
+,Sikat Gigi Formula,Rp 6000,-5,Perawatan Pribadi
+PRD130570,Shampo Clear Sachet,,80,Perawatan Pribadi
+PRD130571,,10000,90,Lainnya
+PRD130572,Coca Cola Botol 390ml,5000.00,-23,Minuman
+PRD130573,Margarin Forvita 200g,,49.0,Sembako
+PRD130574,Shampo Clear Sachet,1500,29,Perawatan Pribadi
+PRD130575,Kopi Kapal Api Sachet,Rp 1.500,30,Minuman
+PRD130576,Susu Indomilk Sachet, 1500 ,1,Minuman
+PRD130577,Deterjen Attack Jaz1 800g, 19000 ,,Pembersih
+PRD130578,Sabun Lux Mawar,4500,7,Perawatan Pribadi
+PRD130579,Kopi Luwak White Koffie, 2000 ,63,Minuman
+PRD130580,Minyak Curah 1L,Rp 16000,63,Sembako
+PRD130581,Pembersih Lantai Super Pell 770ml,13500.00,,Pembersih
+PRD130582,Pembersih Lantai Super Pell 770ml,Rp 13500,57.0,Pembersih
+PRD130583,Rokok Marlboro Merah,38000,89,Rokok
+PRD130584,Aqua Gelas 240ml,Rp 1.000,92,Minuman
+PRD130585,Tepung Beras Rose Brand 500g,Rp 7.500,55.0,Sembako
+PRD130586,Sabun Nuvo Biru,3500,-2,Perawatan Pribadi
+PRD130587,Kopi ABC Susu, 1500 ,,Minuman
+PRD130588,,34500,88,Sembako
+PRD130589,,Rp 3.500,62,Perawatan Pribadi
+PRD130590,Tepung Tapioka Rose Brand 500g,8000,78,Sembako
+PRD130591,Rokok Surya 16,Rp 31000,14,Rokok
+PRD130592,Sabun Nuvo Biru,Rp 3.500,95,Perawatan Pribadi
+PRD130593,Aqua Botol 600ml,3500,86,Minuman
+PRD130594,Le Minerale 600ml,3500,-89,Minuman
+PRD130595,Sabun Mandi Dettol,5000,62,Perawatan Pribadi
+,Teh Pucuk Harum 350ml,4000.00,,Minuman
+PRD130597,Deterjen Daia 850g,Rp 18500,40,Pembersih
+PRD130598,Sprite Botol 390ml,Rp 5.000,70,Minuman
+PRD130599,, 35000 ,13,Sembako
+PRD130600,Le Minerale 600ml, 3500 ,45,Minuman
+PRD130601,Kopi ABC Susu,1500.00,8,Minuman
+PRD130602,Susu Bear Brand,Rp 10.500,3,Minuman
+PRD130603,Garam Kapal 250g,3000,63,Bumbu
+PRD130604,Popok MamyPoko Pants M,Rp 55.000,73,Perawatan Bayi
+PRD130605,Obat Nyamuk Baygon Bakar,6000,10,Lainnya
+PRD130606,Tisu Tessa 250s,Rp 17000,-54,Lainnya
+PRD130607,Kecap Bango Pouch 220ml,Rp 11.000,70,Bumbu
+PRD130608,Sabun Cuci Piring Sunlight 460ml,11000.00,38,Pembersih
+PRD130609,Indomie Goreng,Rp 3000,58,Makanan
+PRD130610,Coca Cola Botol 390ml,5000,1,Minuman
+PRD130611,Pembersih Lantai Wipol 750ml, 18000 ,-65,Pembersih
+PRD130612,Kopi Kapal Api Sachet,Rp 1.500,37,Minuman
+PRD130613,Kapur Barus Bagus,15000,100,Lainnya
+PRD130614,Indomie Goreng,3000,25.0,Makanan
+PRD130615,,70000,,Sembako
+PRD130616,Tisu Paseo 250s,Rp 18.500,78,Lainnya
+PRD130617,Rokok Surya 16, 31000 ,16,Rokok
+PRD130618,Deterjen Rinso Anti Noda 700g,Rp 22000,3,Pembersih
+PRD130619,,5000,13,Minuman
+PRD130620,Indomie Goreng,3000,73,Makanan
+PRD130621,Sabun Cuci Piring Sunlight 460ml,11000,53,Pembersih
+PRD130622,Kopi Nescafe Classic, 5000 ,32,Minuman
+PRD130623,Tepung Terigu Segitiga Biru 1kg,Rp 13.000,77,Sembako
+PRD130624,Sabun Nuvo Biru,3500,11,Perawatan Pribadi
+PRD130625,Tepung Terigu Segitiga Biru 1kg,Rp 13.000,55,Sembako
+PRD130626,Minyak Bimoli 2L,35000.00,,Sembako
+PRD130627,Kecap ABC Pouch 220ml,9500.00,71,Bumbu
+PRD130628,Shampo Clear Sachet,1500.00,24,Perawatan Pribadi
+PRD130629,Shampo Pantene Sachet,Rp 1.500,-43,Perawatan Pribadi
+PRD130630,Kopi Luwak White Koffie,Rp 2.000,16.0,Minuman
+PRD130631,Shampo Pantene Sachet,1500,-22,Perawatan Pribadi
+PRD130632,Indomie Kuah Ayam Bawang,,94,Makanan
+PRD130633,Indomie Goreng,Rp 3000,4,Makanan
+PRD130634,Aqua Botol 600ml, 3500 ,100,Minuman
+PRD130635,Minyak Sania 2L,Rp 34500,15,Sembako
+PRD130636,Tepung Tapioka Rose Brand 500g,Rp 8.000,21,Sembako
+PRD130637,Minyak Filma 2L,,82,Sembako
+PRD130638,Margarin Blue Band 200g,Rp 9500,6,Sembako
+PRD130639,Tisu Tessa 250s,Rp 17.000,47.0,
+PRD130640,Beras Ramos 5kg,Rp 65.000,-56,Sembako
+PRD130641,Sabun Lifebuoy Merah, 4000 ,50,Perawatan Pribadi
+PRD130642,Sabun Lifebuoy Merah,4000.00,19,Perawatan Pribadi
+PRD130643,Tisu Tessa 250s,,56,Lainnya
+,Aqua Gelas 240ml,1000.00,73.0,Minuman
+PRD130645,Bumbu Racik Indofood Nasi Goreng,Rp 2.500,16,Bumbu
+PRD130646,Susu Dancow Sachet,3500,2,Minuman
+PRD130647,Deterjen Rinso Anti Noda 700g,22000,-77,Pembersih
+PRD130648,Sabun Nuvo Biru,,94,Perawatan Pribadi
+PRD130649,Aqua Galon,21000,77,Minuman
+PRD130650,Tepung Terigu Segitiga Biru 1kg,13000,,Sembako
+PRD130651,Rokok Marlboro Merah,38000,82,Rokok
+PRD130652,Deterjen Rinso Anti Noda 700g,22000,40,Pembersih
+PRD130653,Popok MamyPoko Pants M,55000,68,Perawatan Bayi
+PRD130654,Indomie Kuah Soto,Rp 2800,46,Makanan
+PRD130655,Teh Pucuk Harum 350ml,Rp 4000,89.0,Minuman
+PRD130656,Shampo Clear Sachet,1500,76,Perawatan Pribadi
+PRD130657,Kopi Kapal Api Sachet,Rp 1.500,68,Minuman
+PRD130658,Rokok Marlboro Merah,38000,20,Rokok
+PRD130659,Indomie Kari Ayam,Rp 2.800,-32,Makanan
+PRD130660,Tepung Beras Rose Brand 500g, 7500 ,72,Sembako
+PRD130661,Kapur Barus Bagus,15000.00,,Lainnya
+PRD130662,Rokok Sampoerna Mild,Rp 30.000,25,Rokok
+PRD130663,Tisu Tessa 250s,Rp 17.000,77,Lainnya
+PRD130664,Kopi Kapal Api Sachet,Rp 1500,0,Minuman
+PRD130665,Shampo Clear Sachet,1500.00,,Perawatan Pribadi
+PRD130666,Rokok Marlboro Merah,38000,95,Rokok
+PRD130667,Kopi Kapal Api Sachet, 1500 ,27,Minuman
+PRD130668,Bumbu Racik Indofood Sayur Asem,2500,50,Bumbu
+PRD130669,Sabun Nuvo Biru, 3500 ,19,Perawatan Pribadi
+PRD130670,Minyak Sania 2L, 34500 ,16,Sembako
+PRD130671,Rokok Gudang Garam Filter,Rp 23000,2,Rokok
+,Pembalut Laurier Relax Night,20000.00,38,Perawatan Pribadi
+PRD130673,Beras Rojolele 5kg,Rp 67000,88,Sembako
+PRD130674,Shampo Sunsilk Sachet,Rp 1.500,92,Perawatan Pribadi
+PRD130675,Beras Rojolele 5kg,Rp 67.000,25,Sembako
+PRD130676,Baterai Alkalin AA (2 pcs),15000.00,-85,Lainnya
+PRD130677,Garam Kapal 250g,Rp 3000,35,
+PRD130678,Susu Indomilk Sachet,1500,6,Minuman
+PRD130679,,31000,,Rokok
+PRD130680,Shampo Lifebuoy Sachet,Rp 1000,77,Perawatan Pribadi
+PRD130681,,19000,48,Pembersih
+PRD130682,Pembersih Lantai Super Pell 770ml,13500,72,Pembersih
+PRD130683,Aqua Gelas 240ml,Rp 1000,35,Minuman
+PRD130684,Tepung Beras Rose Brand 500g,7500.00,77,Sembako
+PRD130685,Beras Rojolele 5kg,67000,14,Sembako
+PRD130686,,3000,24,Bumbu
+PRD130687,Indomie Kuah Soto,2800,1,Makanan
+PRD130688,Korek Api Gas Tokai,3000.00,4,Lainnya
+PRD130689,Tepung Terigu Segitiga Biru 1kg,13000.00,27,Sembako
+PRD130690,Tepung Terigu Segitiga Biru 1kg,13000,-7,Sembako
+PRD130691,Garam Refina 250g,,21,Bumbu
+PRD130692,Kapur Barus Bagus,Rp 15000,23,Lainnya
+PRD130693,Tepung Beras Rose Brand 500g,Rp 7.500,24,Sembako
+PRD130694,Teh Pucuk Harum 350ml,Rp 4.000,0,Minuman
+PRD130695,Pembalut Charm Cooling Fresh,Rp 18.000,5,Perawatan Pribadi
+PRD130696,,1000.00,13,Minuman
+PRD130697,Sabun Lux Mawar,Rp 4500,66,Perawatan Pribadi
+PRD130698,Teh Sariwangi Celup,6500.00,75,Minuman
+PRD130699,Pembalut Charm Cooling Fresh,Rp 18000,46,Perawatan Pribadi
+PRD130700,Aqua Galon,Rp 21000,68,Minuman
+PRD130701,Teh Pucuk Harum 350ml,Rp 4000,67.0,Minuman
+PRD130702,Kapur Barus Bagus,Rp 15000,42,Lainnya
+PRD130703,Sabun Lifebuoy Merah,Rp 4000,1,Perawatan Pribadi
+,Pasta Gigi Pepsodent 190g,12500,5,Perawatan Pribadi
+PRD130705,Susu Bear Brand,10500.00,57,Minuman
+PRD130706,Shampo Pantene Sachet,Rp 1.500,68,Perawatan Pribadi
+PRD130707,,Rp 5.000,,Minuman
+PRD130708,Beras Pandan Wangi 5kg,Rp 70000,-84,Sembako
+PRD130709,Sabun Lux Mawar,4500,59,Perawatan Pribadi
+PRD130710,, 10500 ,39,Minuman
+PRD130711,Sikat Gigi Formula,Rp 6000,12,Perawatan Pribadi
+PRD130712,Pasta Gigi Pepsodent 190g,Rp 12500,13,Perawatan Pribadi
+PRD130713,Margarin Blue Band 200g,Rp 9.500,95,Sembako
+,Bumbu Racik Indofood Sayur Asem,2500.00,74,Bumbu
+,Obat Nyamuk Baygon Bakar,Rp 6000,41,Lainnya
+PRD130716,Beras Rojolele 5kg,Rp 67000,8,Sembako
+PRD130717,Shampo Pantene Sachet, 1500 ,85,Perawatan Pribadi
+PRD130718,Rokok Gudang Garam Filter,23000,15,Rokok
+PRD130719,Minyak Curah 1L,Rp 16000,76.0,Sembako
+PRD130720,Beras Rojolele 5kg, 67000 ,35,Sembako
+PRD130721,Tisu Tessa 250s,Rp 17000,70,Lainnya
+PRD130722,Rokok Marlboro Merah,38000.00,34,Rokok
+PRD130723,Minyak Filma 2L,Rp 34000,49.0,Sembako
+PRD130724,Beras Ramos 5kg,Rp 65000,89,
+PRD130725,Minyak Filma 2L,Rp 34.000,-76,Sembako
+PRD130726,Shampo Clear Sachet,,97.0,Perawatan Pribadi
+PRD130727,Pembalut Laurier Relax Night,20000.00,99,Perawatan Pribadi
+PRD130728,Saus Sambal ABC 340ml,,30,Bumbu
+PRD130729,Pasta Gigi Ciptadent 190g,10000,-13,Perawatan Pribadi
+PRD130730,Shampo Clear Sachet,Rp 1500,10,
+PRD130731,Baterai ABC Sedang (2 pcs),10000,-4,Lainnya
+PRD130732,Obat Nyamuk Baygon Bakar,6000,38.0,Lainnya
+PRD130733,Teh Sariwangi Celup,,27,Minuman
+PRD130734,Indomie Kari Ayam,Rp 2800,45.0,Makanan
+PRD130735,,16000.00,29,Sembako
+PRD130736,Sabun Cuci Piring Sunlight 460ml,11000,83,Pembersih
+PRD130737,Mie Sedap Goreng,Rp 2900,100,Makanan
+PRD130738,Pembalut Charm Cooling Fresh,Rp 18000,51,Perawatan Pribadi
+PRD130739,Pembersih Lantai Super Pell 770ml,Rp 13.500,9.0,Pembersih
+PRD130740,Rokok Marlboro Merah,Rp 38.000,75.0,Rokok
+,Shampo Clear Sachet,1500,61,Perawatan Pribadi
+PRD130742,Pembersih Lantai Wipol 750ml,Rp 18000,34,Pembersih
+PRD130743,Minyak Sania 2L,34500.00,14,Sembako
+PRD130744,Indomie Kuah Soto, 2800 ,55,Makanan
+PRD130745,Indomie Kuah Ayam Bawang,,26,Makanan
+PRD130746,Indomie Kuah Ayam Bawang,Rp 2.800,-53,Makanan
+PRD130747,Popok MamyPoko Pants M, 55000 ,38,Perawatan Bayi
+PRD130748,Margarin Forvita 200g,Rp 7.000,-60,Sembako
+PRD130749,Minyak Curah 1L,16000.00,94,Sembako
+PRD130750,Pembersih Lantai Wipol 750ml,18000,2,Pembersih
+PRD130751,Indomie Kuah Soto,2800,70,Makanan
+PRD130752,Beras Ramos 5kg,65000.00,89,Sembako
+PRD130753,Kopi Luwak White Koffie,Rp 2000,45,Minuman
+PRD130754,Indomie Kuah Ayam Bawang,2800,58,Makanan
+PRD130755,Susu Dancow Sachet,Rp 3500,80,
+PRD130756,Minyak Bimoli 2L,35000,80,Sembako
+PRD130757,Kapur Barus Bagus,15000.00,22,Lainnya
+PRD130758,Minyak Curah 1L, 16000 ,48,Sembako
+PRD130759,Indomie Kuah Soto,Rp 2.800,67,Makanan
+PRD130760,Garam Refina 250g,Rp 3500,19,Bumbu
+PRD130761,Minyak Curah 1L,16000.00,6,Sembako
+PRD130762,Baterai Alkalin AA (2 pcs),Rp 15.000,94,Lainnya
+PRD130763,Kopi Torabika Susu,1500,45,Minuman
+PRD130764,Deterjen Attack Jaz1 800g,Rp 19.000,-11,Pembersih
+PRD130765,Rokok Surya 16,31000.00,57,Rokok
+PRD130766,Baterai ABC Sedang (2 pcs),10000,37,Lainnya
+PRD130767,Kopi ABC Susu,1500,21,Minuman
+PRD130768,Sabun Mandi Dettol,5000,0,Perawatan Pribadi
+,Deterjen Attack Jaz1 800g,Rp 19000,99,Pembersih
+PRD130770,Garam Refina 250g, 3500 ,28.0,Bumbu
+PRD130771,Saus Sambal Indofood 340ml,Rp 14500,86,Bumbu
+PRD130772,,Rp 1.500,,Perawatan Pribadi
+PRD130773,Garam Kapal 250g,Rp 3.000,20,Bumbu
+,Minyak Curah 1L,16000,48,
+PRD130775,Susu Bear Brand,Rp 10500,83,Minuman
+PRD130776,Popok Sweety Bronze Pants L,48000.00,31.0,Perawatan Bayi
+PRD130777,Margarin Forvita 200g,7000,17.0,Sembako
+,Deterjen Attack Jaz1 800g,19000.00,76,Pembersih
+PRD130779,Kopi Luwak White Koffie,2000.00,30,Minuman
+PRD130780,Minyak Curah 1L,16000.00,-11,Sembako
+PRD130781,,Rp 2.500,70,Bumbu
+PRD130782,Pembalut Charm Cooling Fresh,Rp 18.000,100,Perawatan Pribadi
+PRD130783,Baterai Alkalin AA (2 pcs),15000.00,80.0,Lainnya
+PRD130784,Minyak Curah 1L,,98,Sembako
+PRD130785,Kapur Barus Bagus,15000,17,Lainnya
+PRD130786,Kopi Nescafe Classic,,-88,Minuman
+PRD130787,Pembersih Lantai Super Pell 770ml,,27,Pembersih
+PRD130788,Fanta Merah 390ml,Rp 5.000,12,Minuman
+PRD130789,Tepung Beras Rose Brand 500g,7500,87,Sembako
+PRD130790,Gula Curah 1kg,Rp 15000,75,Sembako
+PRD130791,Rokok Marlboro Merah, 38000 ,12,Rokok
+PRD130792,Sabun Lifebuoy Merah,Rp 4000,72,Perawatan Pribadi
+PRD130793,Susu Indomilk Sachet, 1500 ,2,Minuman
+PRD130794,Gula Curah 1kg,Rp 15.000,,Sembako
+PRD130795,Beras Ramos 5kg,65000,3,Sembako
+PRD130796,,Rp 1500,16,Minuman
+PRD130797,Pasta Gigi Pepsodent 190g,12500,99,Perawatan Pribadi
+,Sikat Gigi Formula,6000,83,Perawatan Pribadi
+PRD130799,Aqua Gelas 240ml,1000.00,72.0,Minuman
+PRD130800,Aqua Botol 600ml,,9,Minuman
+PRD130801,Beras Ramos 5kg,65000,29,Sembako
+,Beras Rojolele 5kg,Rp 67.000,33,Sembako
+PRD130803,,70000,97,Sembako
+PRD130804,Korek Api Gas Tokai,Rp 3000,43,Lainnya
+PRD130805,Popok MamyPoko Pants M,55000,45.0,Perawatan Bayi
+PRD130806,Sabun Cuci Piring Sunlight 460ml,11000,19,Pembersih
+,Susu Frisian Flag Sachet,1500,39,Minuman
+PRD130808,Minyak Sania 2L,34500.00,-64,Sembako
+PRD130809,Tisu Tessa 250s,Rp 17000,98,Lainnya
+PRD130810,Korek Api Gas Tokai,3000.00,0.0,Lainnya
+PRD130811,,,45,Makanan
+PRD130812,Popok MamyPoko Pants M,,49,Perawatan Bayi
+PRD130813,,Rp 3500,12,Bumbu
+PRD130814,Pembersih Lantai Wipol 750ml,18000.00,33.0,Pembersih
+PRD130815,Baterai ABC Sedang (2 pcs),10000.00,90,Lainnya
+PRD130816,Sabun Lifebuoy Merah,4000,-27,Perawatan Pribadi
+PRD130817,Obat Nyamuk Hit Spray,35000.00,10,Lainnya
+PRD130818,Mie Sedap Goreng,,83,Makanan
+PRD130819,Sabun Mandi Dettol, 5000 ,56,Perawatan Pribadi
+PRD130820,Kecap ABC Pouch 220ml,9500.00,80,Bumbu
+PRD130821,Minyak Bimoli 2L,35000,96,Sembako
+PRD130822,Gula Pasir Gulaku 1kg,16000,68,Sembako
+PRD130823,Rokok Surya 16,31000,42,Rokok
+PRD130824,Beras Pandan Wangi 5kg,70000.00,47,Sembako
+PRD130825,Pasta Gigi Pepsodent 190g,,96.0,Perawatan Pribadi
+PRD130826,Tisu Paseo 250s, 18500 ,34,Lainnya
+PRD130827,Kecap Bango Pouch 220ml,,3,Bumbu
+PRD130828,Sabun Cuci Piring Mama Lemon 400ml,9500.00,-70,Pembersih
+PRD130829,Tisu Paseo 250s,18500.00,64,Lainnya
+PRD130830,Deterjen Rinso Anti Noda 700g,Rp 22000,41,Pembersih
+PRD130831,Minyak Sania 2L,Rp 34.500,-28,Sembako
+PRD130832,Sprite Botol 390ml,Rp 5000,49,Minuman
+PRD130833,Teh Pucuk Harum 350ml,4000,75,Minuman
+PRD130834,Pembalut Laurier Relax Night,Rp 20.000,71,Perawatan Pribadi
+PRD130835,Korek Api Gas Tokai,3000,45,Lainnya
+PRD130836,Indomie Goreng,Rp 3.000,75,Makanan
+PRD130837,Shampo Pantene Sachet,Rp 1.500,43,Perawatan Pribadi
+PRD130838,Fanta Merah 390ml, 5000 ,97.0,Minuman
+PRD130839,Sabun Nuvo Biru, 3500 ,27,Perawatan Pribadi
+PRD130840,Rokok Surya 16,31000.00,80,Rokok
+PRD130841,Tepung Tapioka Rose Brand 500g,8000.00,12,Sembako
+PRD130842,Bumbu Racik Indofood Nasi Goreng,2500,86,Bumbu
+PRD130843,Deterjen Daia 850g,Rp 18.500,26,Pembersih
+PRD130844,Susu Bear Brand,Rp 10500,72,Minuman
+,Garam Refina 250g,3500,36,Bumbu
+PRD130846,Sikat Gigi Formula,6000,25,Perawatan Pribadi
+PRD130847,Teh Sariwangi Celup,Rp 6500,55,Minuman
+PRD130848,Sabun Nuvo Biru,3500,2,Perawatan Pribadi
+PRD130849,Sikat Gigi Formula,6000,98,Perawatan Pribadi
+PRD130850,Tisu Paseo 250s,Rp 18.500,64,Lainnya
+PRD130851,Margarin Blue Band 200g,9500.00,18,Sembako
+PRD130852,Garam Kapal 250g,3000,14,Bumbu
+,Obat Nyamuk Hit Spray,35000.00,27,Lainnya
+PRD130854,,Rp 7000,5,Minuman
+PRD130855,Kecap Bango Pouch 220ml,11000,68,Bumbu
+PRD130856,Mie Sedap Goreng,Rp 2900,99,
+PRD130857,Kapur Barus Bagus,Rp 15.000,95,Lainnya
+PRD130858,Tepung Terigu Segitiga Biru 1kg,Rp 13000,58,Sembako
+,Indomie Goreng,3000,-35,Makanan
+PRD130860,Indomie Kari Ayam,Rp 2800,15,Makanan
+PRD130861,Deterjen Attack Jaz1 800g,19000,24,Pembersih
+PRD130862,Rokok Marlboro Merah,Rp 38000,60.0,Rokok
+,Garam Kapal 250g,3000,65,Bumbu
+PRD130864,Saus Sambal ABC 340ml,15000,65,Bumbu
+PRD130865,Indomie Kari Ayam,Rp 2.800,27,Makanan
+PRD130866,Pembalut Charm Cooling Fresh,Rp 18.000,32,Perawatan Pribadi
+PRD130867,Aqua Gelas 240ml,Rp 1000,25,Minuman
+PRD130868,Pembalut Charm Cooling Fresh,Rp 18.000,-79,Perawatan Pribadi
+PRD130869,,9500.00,24,Pembersih
+PRD130870,Shampo Sunsilk Sachet,Rp 1.500,29,Perawatan Pribadi
+PRD130871,Deterjen Attack Jaz1 800g,19000,76,Pembersih
+PRD130872,Susu Bear Brand, 10500 ,-13,Minuman
+PRD130873,Sprite Botol 390ml,5000,-62,Minuman
+PRD130874,Kecap ABC Pouch 220ml,Rp 9.500,15,Bumbu
+PRD130875,Deterjen Attack Jaz1 800g,19000.00,23,Pembersih
+PRD130876,Pembalut Laurier Relax Night,20000.00,,Perawatan Pribadi
+PRD130877,Sabun Cuci Piring Sunlight 460ml,11000,85,Pembersih
+PRD130878,Shampo Pantene Sachet,1500.00,39,
+PRD130879,Beras Pandan Wangi 5kg, 70000 ,-11,Sembako
+PRD130880,Deterjen Rinso Anti Noda 700g,22000.00,30,Pembersih
+PRD130881,Saus Sambal Indofood 340ml,14500.00,81,Bumbu
+,Susu Frisian Flag Sachet,Rp 1.500,-89,Minuman
+PRD130883,Susu Frisian Flag Sachet,Rp 1500,10,Minuman
+PRD130884,Saus Sambal Indofood 340ml,14500,95,Bumbu
+PRD130885,Popok MamyPoko Pants M,55000.00,76,Perawatan Bayi
+PRD130886,Minyak Bimoli 2L,35000.00,87,Sembako
+PRD130887,Kopi Luwak White Koffie,,97,Minuman
+PRD130888,, 3000 ,7,Makanan
+PRD130889,Gula Curah 1kg,15000,54,Sembako
+PRD130890,Mie Sedap Goreng, 2900 ,94,Makanan
+PRD130891,Popok MamyPoko Pants M,Rp 55000,38,Perawatan Bayi
+PRD130892,Popok MamyPoko Pants M,55000.00,38,Perawatan Bayi
+PRD130893,Susu Frisian Flag Sachet,1500.00,15,Minuman
+PRD130894,,5000,22,Minuman
+PRD130895,Shampo Clear Sachet,,100,Perawatan Pribadi
+PRD130896,Aqua Galon,21000,63,Minuman
+PRD130897,Minyak Sania 2L,Rp 34500,12,Sembako
+PRD130898,Pembersih Lantai Super Pell 770ml,13500,-27,Pembersih
+PRD130899,Obat Nyamuk Hit Spray,35000,0,Lainnya
+,Deterjen Daia 850g,Rp 18500,22,Pembersih
+PRD130901,Indomie Kuah Soto,2800,10.0,
+PRD130902,Kopi Luwak White Koffie,2000.00,56,Minuman
+PRD130903,Kopi Luwak White Koffie,2000,79,Minuman
+PRD130904,Minyak Sania 2L,34500,8,Sembako
+PRD130905,,,11,Perawatan Pribadi
+PRD130906,Popok Sweety Bronze Pants L,Rp 48.000,97,Perawatan Bayi
+PRD130907,Popok MamyPoko Pants M,,46,Perawatan Bayi
+PRD130908,Aqua Botol 600ml, 3500 ,-92,Minuman
+PRD130909,Sabun Nuvo Biru,Rp 3.500,11,Perawatan Pribadi
+,Popok Sweety Bronze Pants L, 48000 ,34,Perawatan Bayi
+PRD130911,Garam Kapal 250g,Rp 3.000,17,Bumbu
+PRD130912,Saus Sambal Indofood 340ml,14500,-40,
+PRD130913,Sabun Lifebuoy Merah,Rp 4000,87.0,Perawatan Pribadi
+,Kopi ABC Susu,1500,3,Minuman
+PRD130915,Saus Sambal ABC 340ml,Rp 15.000,41,Bumbu
+PRD130916,Susu Frisian Flag Sachet,Rp 1.500,,Minuman
+PRD130917,Indomie Goreng,3000,-71,Makanan
+PRD130918,Gula Curah 1kg,Rp 15000,63,Sembako
+PRD130919,Teh Sariwangi Celup,Rp 6.500,73,Minuman
+PRD130920,Tepung Beras Rose Brand 500g,7500.00,52,Sembako
+PRD130921,Aqua Botol 600ml,Rp 3.500,71,Minuman
+PRD130922,Teh Sariwangi Celup,6500,11,Minuman
+PRD130923,Gula Pasir Gulaku 1kg,16000.00,25,Sembako
+PRD130924,Tepung Terigu Segitiga Biru 1kg,13000,91,Sembako
+PRD130925,,Rp 35000,68,Sembako
+PRD130926,Deterjen Attack Jaz1 800g, 19000 ,16.0,Pembersih
+PRD130927,Coca Cola Botol 390ml,5000.00,23,Minuman
+PRD130928,Tisu Tessa 250s, 17000 ,1,Lainnya
+PRD130929,Rokok Djarum Super,22000.00,68,Rokok
+PRD130930,Deterjen Rinso Anti Noda 700g, 22000 ,97,Pembersih
+PRD130931,Saus Sambal Indofood 340ml,14500.00,28,Bumbu
+PRD130932,,Rp 3.500,51,Perawatan Pribadi
+PRD130933,Minyak Bimoli 2L,35000,25,Sembako
+PRD130934,Susu Bear Brand,10500,47,Minuman
+PRD130935,Sprite Botol 390ml,5000,88,Minuman
+PRD130936,Tisu Paseo 250s,18500.00,-62,
+PRD130937,Minyak Bimoli 2L, 35000 ,100.0,Sembako
+PRD130938,Bumbu Racik Indofood Sayur Asem,Rp 2500,21,Bumbu
+PRD130939,Tepung Terigu Segitiga Biru 1kg,13000,68.0,Sembako
+PRD130940,Tepung Beras Rose Brand 500g,7500.00,70,Sembako
+PRD130941,Le Minerale 600ml,Rp 3.500,20,Minuman
+PRD130942,Aqua Gelas 240ml,Rp 1.000,-22,Minuman
+PRD130943,Susu Indomilk Sachet,Rp 1500,22,Minuman
+PRD130944,Sabun Nuvo Biru,3500.00,99,Perawatan Pribadi
+PRD130945,Pembersih Lantai Wipol 750ml,,,Pembersih
+PRD130946,Kopi ABC Susu,Rp 1500,68.0,Minuman
+PRD130947,Sabun Lux Mawar,4500.00,15,Perawatan Pribadi
+PRD130948,Popok Sweety Bronze Pants L,48000.00,20,Perawatan Bayi
+PRD130949,Obat Nyamuk Hit Spray,35000,67,Lainnya
+PRD130950,Teh Pucuk Harum 350ml,Rp 4000,79,Minuman
+PRD130951,Shampo Sunsilk Sachet,,43,Perawatan Pribadi
+PRD130952,Kopi Luwak White Koffie,Rp 2.000,69,Minuman
+PRD130953,Shampo Pantene Sachet,,,Perawatan Pribadi
+PRD130954,Gula Pasir Gulaku 1kg,Rp 16000,-56,Sembako
+PRD130955,Kecap ABC Pouch 220ml,Rp 9.500,29.0,Bumbu
+PRD130956,Rokok Sampoerna Mild,Rp 30.000,32,
+PRD130957,Saus Sambal ABC 340ml,15000,69,Bumbu
+PRD130958,Baterai ABC Sedang (2 pcs),Rp 10000,86,Lainnya
+PRD130959,Kopi Luwak White Koffie,Rp 2.000,18,Minuman
+PRD130960,Bumbu Racik Indofood Sayur Asem,Rp 2.500,68,Bumbu
+PRD130961,Garam Refina 250g,Rp 3.500,36,Bumbu
+PRD130962,Beras Ramos 5kg,Rp 65000,73,Sembako
+PRD130963,,1000.00,17,Perawatan Pribadi
+PRD130964,Le Minerale 600ml,Rp 3500,24,Minuman
+PRD130965,Aqua Galon,Rp 21000,49,Minuman
+PRD130966,Susu Frisian Flag Sachet,Rp 1.500,16,Minuman
+PRD130967,Minyak Bimoli 2L,35000,7,Sembako
+PRD130968,Aqua Gelas 240ml,Rp 1000,48,Minuman
+PRD130969,Fanta Merah 390ml,5000.00,7,Minuman
+PRD130970,Susu Dancow Sachet, 3500 ,25,Minuman
+PRD130971,Aqua Galon,21000.00,34,Minuman
+PRD130972,Sabun Lux Mawar,4500,61,Perawatan Pribadi
+PRD130973,Pembalut Charm Cooling Fresh,Rp 18000,100.0,Perawatan Pribadi
+PRD130974,Mie Sedap Goreng,Rp 2.900,86,Makanan
+PRD130975,Susu Frisian Flag Sachet,1500.00,18,Minuman
+PRD130976,Pasta Gigi Pepsodent 190g,,45,Perawatan Pribadi
+,Bumbu Racik Indofood Sayur Asem,Rp 2500,5,Bumbu
+PRD130978,Kecap Bango Pouch 220ml,Rp 11.000,20,Bumbu
+PRD130979,Margarin Blue Band 200g,Rp 9.500,20,Sembako
+PRD130980,,1500,42,Perawatan Pribadi
+PRD130981,Sikat Gigi Formula,6000,6.0,Perawatan Pribadi
+PRD130982,,Rp 10000,65,Perawatan Pribadi
+PRD130983,Sabun Nuvo Biru,3500,56,Perawatan Pribadi
+PRD130984,Kopi Torabika Susu,1500.00,85,Minuman
+PRD130985,Sprite Botol 390ml,Rp 5000,19,Minuman
+PRD130986,Shampo Sunsilk Sachet,1500,16,Perawatan Pribadi
+PRD130987,Rokok Djarum Super,22000.00,73,Rokok
+PRD130988,Pembersih Lantai Wipol 750ml,Rp 18.000,9.0,Pembersih
+PRD130989,Teh Celup Sosro,7000,-7,Minuman
+PRD130990,Aqua Botol 600ml,Rp 3500,11,Minuman
+PRD130991,Shampo Clear Sachet,,20,
+PRD130992,Kopi Nescafe Classic,Rp 5000,51,Minuman
+PRD130993,Minyak Bimoli 2L,35000,28,Sembako
+PRD130994,Obat Nyamuk Hit Spray,Rp 35.000,62,Lainnya
+PRD130995,Pembalut Charm Cooling Fresh,18000.00,29,Perawatan Pribadi
+PRD130996,Kopi Luwak White Koffie,Rp 2000,80,Minuman
+PRD130997,Rokok Gudang Garam Filter, 23000 ,12.0,Rokok
+PRD130998,Minyak Sania 2L,Rp 34.500,14,Sembako
+PRD130999,Shampo Lifebuoy Sachet,Rp 1.000,59.0,Perawatan Pribadi
+PRD131000,Kopi Nescafe Classic,5000.00,51,Minuman
