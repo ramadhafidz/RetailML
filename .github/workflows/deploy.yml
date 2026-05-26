@@ -10,6 +10,8 @@ env:
 
 jobs:
   deploy:
+    # Hanya jalankan otomatisasi ini jika bukan di repo fork (menghindari error notifikasi)
+    if: github.event.repository.fork == false
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
