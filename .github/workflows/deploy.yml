@@ -4,6 +4,13 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'engine/**'
+      - 'main.py'
+      - 'column_mapper.py'
+      - 'requirements.txt'
+      - 'deploy.sh'
+      - '.github/workflows/deploy.yml'
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
